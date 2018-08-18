@@ -1,0 +1,194 @@
+.page__bd {
+  height: 100%;
+}
+
+.page__bd {
+  padding-bottom: 0;
+}
+
+.weui-tab__content, .search {
+  text-align: center;
+  display: flex;
+}
+.search{
+  margin-top: 5px;
+}
+
+.weui-tab__content2 {
+  text-align: center;
+}
+
+.weui-tab__content3 {
+  text-align: center;
+  padding-top: 10px;
+}
+
+.dis {
+  display: flex;
+  align-items: center;
+}
+
+.leftInfo {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px;
+}
+
+.introduction {
+  color: #bebebe;
+}
+
+.content {
+  margin: 5px;
+  border-radius: 5px;
+  border: 1px solid #bebebe;
+}
+
+.info {
+  font-size: 13px;
+  padding-left: 10px;
+}
+
+.img {
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  border: 1px solid #bebebe;
+}
+
+.time {
+  margin-left: 5px;
+  display: flex;
+  justify-content: space-around;
+  font-size: 12px;
+  color: #bebebe;
+}
+
+.operation {
+  position: fixed;
+  top: 80%;
+  left: 80%;
+  z-index: 9999;
+}
+
+.addImg {
+  width: 40px;
+  height: 40px;
+}
+
+.nodata {
+  padding-top: 50%;
+}
+
+.nodataImg {
+  width: 100px;
+  height: 100px;
+}
+
+.nodataMsg {
+  font-size: 13px;
+  color: #bebebe;
+}
+
+.left {
+  height: 100%;
+  width: 19%;
+  display: inline-block;
+  background: #fff;
+  text-align: center;
+  border-right: 1px solid #eee;
+}
+
+
+
+.leftlist {
+  font-size: 12px;
+  padding: 10px;
+}
+
+.right,.search {
+  height: 100%;
+  width: 80%;
+  background: #fff;
+  text-align: center;
+}
+.search{
+  display: inline-block;
+}
+.right{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.line {
+  width: 15px;
+  height: 1px;
+  background: #ddd;
+  display: inline-block;
+  vertical-align: super;
+  margin: 0 15px;
+}
+
+.li {
+  height: 10%;
+  width: 33%;
+  /* display: inline-block; */
+  text-align: center;
+}
+
+.li image {
+  width: 50px;
+  height: 60px;
+}
+
+.li .name {
+  font-size: 12px;
+  display: block;
+  color: #888;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.title {
+  padding: 20px 0;
+}
+
+.yes {
+  color: #1296db;
+  font-size: 14px;
+}
+
+scroll-view {
+  margin-top: 5px;
+}
+
+.searchbar-result {
+  margin-top: 0;
+  font-size: 14px;
+}
+
+.searchbar-result:before {
+  display: none;
+}
+
+.weui-cell {
+  padding: 12px 15px 12px 35px;
+}
+.circleImg{
+  border-radius: 5px;
+}
+.weui-navbar__item.weui-bar__item_on{
+  color: #1296DB;
+}
+.weui-navbar__slider{
+  background-color: #1296DB;
+}

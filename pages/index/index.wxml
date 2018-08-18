@@ -1,0 +1,79 @@
+<!--index.wxml-->
+<view class="page">
+  <swiper indicator-dots="false" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{swiper}}" wx:key="{{index}}">
+      <swiper-item>
+        <view class='headerTitle'>{{item.TITLE}}</view>
+        <image src="{{item.IMG}}" class="slide-image" width="355" height="150" bindtap='toDetailArticle' data-id='{{index}}' />
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class='tline'></view>
+  <view class='gamePreview'>
+    <block wx:for="{{recommendList}}" wx:key="{{index}}">
+      <view class='previewcon'>
+        <view class='gameInfo'>
+          <view class='gameName'>
+            {{item.gameName}}
+          </view>
+          <view class='gameTime' wx:if="{{item.gameTime!=null}}">{{item.gameTime}}</view>
+          <view class='gameTime' wx:else>未开始</view>
+        </view>
+        <view class='preview' bindtap='toGameDetail' data-link="{{item.gameLink}}">
+          <!-- <navigator url='/pages/gameDetail/gameDetail?id={{item.gameLink}}'> -->
+          <!-- <view class='away'>
+          <image src='{{item.away.awayImg}}' class='teamImg'></image>
+          <view class='teamName'>{{item.away.awayName}}</view>
+        </view>
+        <view class='stat'>
+          <view>{{item.gameName}}</view>
+          <view>{{item.gameStat}}</view>
+        </view>
+        <view class='home'>
+          <image src='{{item.home.homeImg}}' class='teamImg'></image>
+          <view class='teamName'>{{item.home.homeName}}</view>
+        </view> -->
+          <view>
+            <view class='awayleft'>
+              <image src='{{item.away.awayImg}}' class='teamImg'></image>
+              <view class='teamName'>{{item.away.awayName}}</view>
+            </view>
+            <view class='homeright'>
+              <image src='{{item.home.homeImg}}' class='teamImg'></image>
+              <view class='teamName'>{{item.home.homeName}}</view>
+            </view>
+          </view>
+          <view class='stat'>{{item.gameStat}}</view>
+          <!-- </navigator> -->
+
+        </view>
+      </view>
+
+
+    </block>
+  </view>
+  <view class='tline'></view>
+  <block wx:for="{{indexList}}" wx:key="{{index}}">
+    <view class='content' bindtap='toDetail' data-id="{{index}}">
+      <view class='left'>
+        <image src="{{item.IMG!=''?item.IMG:'../../img/icon_add.png'}}" class='contentImg'></image>
+        <image src='../../img/icon_video.png' class='videoImg' wx:if="{{item.TYPE==1}}"></image>
+      </view>
+      <view class='right'>
+        <view class='title'>{{item.TITLE}}</view>
+        <view class='stitle' wx:if="{{item.STITLE!=''}}">{{item.STITLE}}</view>
+        <view class='bottom'>
+          <view class='time'>{{item.CREATED}}</view>
+          <view class='count'>{{item.COUNT}} 评论数</view>
+        </view>
+      </view>
+    </view>
+    <view class='line'></view>
+  </block>
+  <view class="weui-loadmore weui-loadmore_line" hidden='{{nomore}}'>
+    <view class="weui-loadmore__tips weui-loadmore__tips_in-line">暂无数据</view>
+  </view>
+  <view class='operation'>
+    <image src='../../img/icon_up_top.png' class='listImg' bindtap='up'></image>
+  </view>
+</view>

@@ -1,0 +1,33 @@
+<template name="goal">
+  <view class="table" hidden='{{dataVisiable}}'>
+    <view class="tr">
+      <view class="th footballResult">排名</view>
+      <view class='th person'>球员</view>
+      <view class="th footballTeam">球队</view>
+      <view class="th footballResult">{{name}}</view>
+    </view>
+    <block wx:for="{{dataList}}" wx:for-item="item" wx:key="{{index}}">
+      <view class="tr {{index%2==0?second:''}} content">
+        <view class="td footballResult {{index==0?'first':(index==1?'second':(index==2?'third':''))}}">{{item.rank}}</view>
+        <view class='td person'>
+          <navigator url="/pages/player/player?id={{item.player.playerLink}}">
+            <view class='teamInfo'>
+              <image src='{{item.player.playerImg}}' class='TeamImg'></image>
+              <view class='TeamName'>{{item.player.playerName}}</view>
+            </view>
+          </navigator>
+        </view>
+        <view class="td footballTeam">
+          <navigator url="/pages/detail/detail?type=team&id={{item.team.teamLink}}">
+            <view class='teamInfo'>
+              <image src='{{item.team.teamImg}}' class='TeamImg'></image>
+              <view class='TeamName'>{{item.team.teamName}}</view>
+            </view>
+          </navigator>
+        </view>
+        <view class='td footballResult'>{{item.stat}}</view>
+      </view>
+    </block>
+
+  </view>
+</template>

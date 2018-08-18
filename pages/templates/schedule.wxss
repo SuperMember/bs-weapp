@@ -1,0 +1,60 @@
+.pre,.next{
+  width: 30%;
+}
+.current{
+  width: 40%;
+}
+.time{
+  width: 30%;
+}
+.team{
+  width: 70%;
+}
+.stable {
+  border-right: 0;
+  border-bottom: 0;
+  width: 100%;
+}
+
+.str {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  /* padding-top: 5px;
+  margin-bottom: 10px; */
+}
+
+.content{
+  padding-top: 10px; 
+}
+
+.sth, .std {
+  border-bottom: 1px solid #dadada;
+  text-align: center;
+  padding: 0px;
+}
+
+.sth {
+  padding-top: 3px;
+  padding-bottom: 3px;
+  background-color: #f5f5f5;
+  font-size: 12px;
+}
+.std{
+  font-size: 13px;
+}
+
+navigator{
+  float: left;
+  width: 100px;
+}
+
+.sresult{
+  float: left;
+  border: 0px;
+  width: 30px;
+}
+
+.home{
+  float:left;
+}

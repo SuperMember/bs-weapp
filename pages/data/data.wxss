@@ -1,0 +1,135 @@
+page, .page, .page__bd {
+  height: 100%;
+}
+
+
+
+/*tab滑动  */
+
+.tab-h {
+  height: 80rpx;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  line-height: 80rpx;
+  /* background: #f7f7f7; */
+  font-size: 16px;
+  white-space: nowrap;
+  /* position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99; */
+}
+
+.tab-item {
+  margin: 0 36rpx;
+  display: inline-block;
+}
+
+.tab-item.active {
+  color: #4675f9;
+  position: relative;
+}
+
+.tab-item.active:after {
+  content: "";
+  display: block;
+  height: 8rpx;
+  width: 52rpx;
+  background: #4675f9;
+  position: absolute;
+  bottom: 0;
+  left: 5rpx;
+  border-radius: 16rpx;
+}
+/*end  */
+
+view {
+  margin: 0px;
+  padding: 0px;
+}
+
+.page__bd {
+  padding-bottom: 0;
+}
+
+.weui-tab__content {
+  text-align: justify;
+  width: 100%;
+}
+
+.weui-navbar__item {
+  margin-left: 10px;
+}
+
+.weui-navbar {
+  border-bottom: none;
+}
+
+.weui-navbar__item.weui-bar__item_on {
+  color: #1296db;
+}
+
+.weui-btn {
+  margin-top: 0px;
+}
+
+.weui-navbar__slider {
+  background-color: #1296db;
+  height: 1px;
+}
+
+.data_title {
+  margin: 0px;
+  padding: 0px;
+}
+
+.data_title_right {
+  width: 100%;
+  padding-right:0px; 
+  float: right;
+}
+
+.data_title_left {
+  padding-top: 10px;
+  float: left;
+}
+
+.data_title_btn {
+  margin-top: 10px;
+  float: left;
+}
+
+.weui-tab__panel {
+  clear: both;
+  padding-top: 0px;
+}
+
+button[type=primary] {
+  background-color: #fff;
+  color: #000;
+}
+
+.data_title_btn_click {
+  background-color: #1296db;
+}
+
+button {
+  margin-left: 10px;
+  border-radius: 5px;
+  width: 50px;
+  height: 30px;
+}
+.first{
+  color: red;
+}
+.second{
+  color: orange;
+}
+.third{
+  color: green;
+}
+
+@import '../templates/score.wxss';
+@import '../templates/goal.wxss';
+@import '../templates/schedule.wxss';

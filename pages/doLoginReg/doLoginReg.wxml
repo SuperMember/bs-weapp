@@ -1,0 +1,140 @@
+<view class="page" xmlns:wx="http://www.w3.org/1999/xhtm" wx:if="{{id=='登录' && show}}">
+  <view class="weui-cell weui-cell_input">
+    <view class="weui-cell__hd">
+      <view class="weui-label">用户名</view>
+    </view>
+    <view class="weui-cell__bd">
+      <input class="weui-input" placeholder="请输入用户名/手机号" bindinput="userNameInput" />
+    </view>
+  </view>
+  <view class="weui-cell weui-cell_input">
+    <view class="weui-cell__hd">
+      <view class="weui-label">密码</view>
+    </view>
+    <view class="weui-cell__bd">
+      <input class="weui-input" placeholder="请输入密码" password="true" bindinput="passWdInput" />
+    </view>
+  </view>
+
+  <view class="weui-btn-area">
+    <button class="weui-btn" type="primary" bindtap="submit">确定</button>
+  </view>
+  <view class='forget' bindtap='forget'>忘记密码</view>
+</view>
+
+<view class='page' wx:if="{{forget}}">
+  <view class="weui-cell weui-cell_input weui-cell_vcode">
+    <view class="weui-cell__hd">
+      <view class="weui-label">手机号</view>
+    </view>
+    <view class="weui-cell__bd">
+      <input class="weui-input" placeholder="请输入手机号" bindinput='phoneInput' />
+    </view>
+    <view class="weui-cell__ft">
+      <view class="weui-vcode-btn" bindtap='getCode' data-id='forget'>{{codeMsg}}</view>
+    </view>
+  </view>
+
+  <view class="weui-cell weui-cell_input weui-cell_vcode">
+    <view class="weui-cell__hd">
+      <view class="weui-label">验证码</view>
+    </view>
+    <view class="weui-cell__bd">
+      <input class="weui-input" placeholder="请输入验证码" bindinput='codeInput' />
+    </view>
+  </view>
+  <view class="weui-btn-area">
+    <button class="weui-btn" type="primary" bindtap="editSecret">确定</button>
+  </view>
+
+</view>
+
+<view class='page' wx:if="{{id=='注册' && !next}}">
+  <view class="weui-cell weui-cell_input weui-cell_vcode">
+    <view class="weui-cell__hd">
+      <view class="weui-label">手机号</view>
+    </view>
+    <view class="weui-cell__bd">
+      <input class="weui-input" placeholder="请输入手机号" bindinput='phoneInput' />
+    </view>
+    <view class="weui-cell__ft">
+      <view class="weui-vcode-btn" bindtap='getCode' data-id="reg">{{codeMsg}}</view>
+    </view>
+  </view>
+
+  <view class="weui-cell weui-cell_input weui-cell_vcode">
+    <view class="weui-cell__hd">
+      <view class="weui-label">验证码</view>
+    </view>
+    <view class="weui-cell__bd">
+      <input class="weui-input" placeholder="请输入验证码" bindinput='codeInput' />
+    </view>
+  </view>
+  <view class="weui-btn-area">
+    <button class="weui-btn" type="primary" bindtap="register">确定</button>
+  </view>
+</view>
+
+<view class='page' wx:if="{{secret}}">
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell weui-cell_input weui-cell_vcode">
+      <view class="weui-cell__hd">
+        <view class="weui-label">密码</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" placeholder="密码" password='true' bindinput="passwordRegInput1" />
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_input weui-cell_vcode">
+      <view class="weui-cell__hd">
+        <view class="weui-label">重复密码</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" placeholder="密码" password='true' bindinput="passwordRegInput2" />
+      </view>
+    </view>
+  </view>
+  <view class="weui-btn-area">
+    <button class="weui-btn" type="primary" bindtap="submitSecret">确认</button>
+  </view>
+</view>
+<view class='page' wx:if="{{next}}">
+  <!-- 设置注册信息 -->
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">用户名</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" placeholder="用户名" bindinput="userNameRegInput" />
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_input weui-cell_vcode">
+      <view class="weui-cell__hd">
+        <view class="weui-label">密码</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" placeholder="密码" password='true' bindinput="passwordRegInput1" />
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_input weui-cell_vcode">
+      <view class="weui-cell__hd">
+        <view class="weui-label">重复密码</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" placeholder="密码" password='true' bindinput="passwordRegInput2" />
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_switch">
+      <view class="weui-cell__bd">性别</view>
+      <view class='weui-label'>{{sex}}</view>
+      <view class="weui-cell__ft">
+        <switch bindchange='switchChange' />
+      </view>
+    </view>
+  </view>
+
+  <view class="weui-btn-area">
+    <button class="weui-btn" type="primary" bindtap="submitReg">提交</button>
+  </view>
+</view>

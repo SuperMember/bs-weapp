@@ -1,0 +1,111 @@
+<view class="page">
+  <view class="header {{userInfo.STATUE==1?'close':''}}">
+    <view class='img'>
+      <image src="{{userInfo.IMG}}" class='userImg' bindtap='open'></image>
+    </view>
+    <view class='name'>
+      <view wx:if="{{isLogin}}">{{userInfo.USERNAME}}</view>
+      <button wx:else type='primary' size='mini' bindtap='login'>点击登录</button>
+      <image wx:if="{{isLogin}}" src="{{userInfo.SEX==0?'../../img/icon_man.png':'../../img/icon_woman.png'}}" class='sexImg' />
+      <image src='../../img/icon_arrow_right.png' class='todetailImg' wx:if="{{isLogin}}" bindtap='editInfo'></image>
+    </view>
+    <view class='info' wx:if="{{isLogin}}">
+      <view class='userinfo'>注册时长{{userInfo.CREATED}}天 | {{userInfo.PHONE}}</view>
+    </view>
+  </view>
+  <view class='content' wx:if="{{isLogin}}">
+    <view class="page__bd">
+      <view class="weui-tab">
+        <view class="weui-navbar">
+          <block wx:for="{{tabs}}" wx:key="*this">
+            <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+              <view class="weui-navbar__title">{{item}}</view>
+            </view>
+          </block>
+          <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+        </view>
+        <view class="weui-tab__panel">
+          <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+            <block wx:for="{{publishList}}" wx:key="{{key}}">
+              <view bindtap='toDetail' data-id='{{index}}'>
+                <view class='headerInfo'>
+                  <image src="{{userInfo.IMG}}" class='userInfoImg'></image>
+                  <view class='infocontainer'>
+                    <view class='username'>{{userInfo.USERNAME}}</view>
+                    <view class='ptime'>{{item.CREATED}} 发表文章</view>
+                  </view>
+                </view>
+                <view class='bottomInfo'>
+                  <view class='pcontent'>{{item.TITLE }}</view>
+                  <view class='pcirclename'>{{item.cTITLE}}</view>
+                </view>
+                <view class='line'></view>
+              </view>
+
+            </block>
+            <view class='bottomData'>
+              <view wx:if="{{publishList==null || publishList.length==0}}" class='nodata'>
+                <image src='../../img/icon_no_data.jpeg' class='nodataImg'></image>
+                <view class='nodataMsg'>暂无数据</view>
+              </view>
+            </view>
+          </view>
+          <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+            <block wx:for="{{commentList}}" wx:key="{{index}}">
+              <view bindtap='toCommentDetail' data-id='{{index}}'>
+                <view class='headerInfo'>
+                  <image src='{{userInfo.IMG}}' class='userInfoImg'></image>
+                  <view class='infocontainer'>
+                    <view class='username'>{{item.USERNAME}}</view>
+                    <view class='ptime'>{{item.CREATED}} 发表评论</view>
+                  </view>
+                </view>
+                <view class='bottomInfo'>
+                  <view class='pcontent'>{{item.CONTENT}}</view>
+                </view>
+                <view class='zan'>{{item.COUNT}}点赞</view>
+                <view class='line'></view>
+              </view>
+            </block>
+            <view class='bottomData'>
+              <view wx:if="{{commentList==null || commentList.length==0}}" class='nodata'>
+                <image src='../../img/icon_no_data.jpeg' class='nodataImg'></image>
+                <view class='nodataMsg'>暂无数据</view>
+              </view>
+            </view>
+          </view>
+          <view class="weui-tab__content" hidden="{{activeIndex != 2}}">
+            <block wx:for="{{fanList}}" wx:key="{{index}}">
+              <view class='fan' bindtap='toUserDetail' data-id='{{item.ID}}'>
+                <image class='fanImg' src="{{item.STATUE==1?'../../img/bg_close.jpg':item.IMG}}"></image>
+                <view class='fanName'>{{item.USERNAME}}</view>
+              </view>
+              <view class='line'></view>
+            </block>
+            <view class='bottomData'>
+              <view wx:if="{{fanList==null || fanList.length==0}}" class='nodata'>
+                <image src='../../img/icon_no_data.jpeg' class='nodataImg'></image>
+                <view class='nodataMsg'>暂无数据</view>
+              </view>
+            </view>
+          </view>
+          <view class="weui-tab__content" hidden="{{activeIndex != 3}}">
+            <block wx:for="{{focusList}}" wx:key="{{index}}">
+              <view class='focus' bindtap='toUserDetail' data-id='{{item.ID}}'>
+                <image class='focusImg' src="{{item.STATUE==1?'../../img/bg_close.jpg':item.IMG}}"></image>
+                <view class='focusName'>{{item.USERNAME}}</view>
+              </view>
+              <view class='line'></view>
+            </block>
+            <view class='bottomData'>
+              <view wx:if="{{focusList==null || focusList.length==0}}" class='nodata'>
+                <image src='../../img/icon_no_data.jpeg' class='nodataImg'></image>
+                <view class='nodataMsg'>暂无数据</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

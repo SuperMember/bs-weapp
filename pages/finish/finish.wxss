@@ -1,0 +1,47 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 15px;
+}
+.time{
+  margin-right: 50px;
+}
+
+.correct{
+  margin-left: 50px;
+}
+
+.bodycontent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tk {
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+  text-align: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 100px;
+  -webkit-border-radius: 100px;
+}
+
+.cor{
+  background-color: blue;
+}
+
+.error{
+  background-color: red;
+}
+
+.line{
+  margin-left: 50px;
+  margin-right: 50px;
+  height: 1px;
+  background-color: black;
+}

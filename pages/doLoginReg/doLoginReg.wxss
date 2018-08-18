@@ -1,0 +1,11 @@
+.forget{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: 13px;
+  color: #bebebe;
+  margin-right: 10px;
+}
+.page{
+  margin-top: 10px;
+}

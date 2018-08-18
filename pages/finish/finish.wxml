@@ -1,0 +1,16 @@
+<view class="page">
+  <view class='header'>
+    <view class='correct'>{{correct}}</view>
+    <view class='time'>所用时间{{time}}</view>
+  </view>
+  <block wx:for="{{tiku}}" wx:key="{{index}}">
+    <view class='bodycontent'>
+      <block wx:for="{{item}}" wx:key="*this" wx:for-item="i">
+        <view class="tk {{i.result?'cor':'error'}}" bindtap='toDetail' data-id="{{index}}">{{i.id}}</view>
+      </block>
+    </view>
+  </block>
+  <view class='bottom'>
+    
+  </view>
+</view>

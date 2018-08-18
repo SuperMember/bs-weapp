@@ -1,0 +1,294 @@
+<view>
+  <view class='header'>
+    <view class='header_left'>
+      <image src='{{team.teamImg}}' class='teamHeaderImg'></image>
+    </view>
+    <view class='header_right'>
+      <view class='teamHeader'>
+        <view class='teamName'>{{team.teamName}}</view>
+        <image src='{{team.teamCInt}}' class="teamCInt"></image>
+      </view>
+      <block wx:for-items="{{team.detailInfo}}" wx:for-item="item" wx:key="{{index}}">
+        <view class='info' wx-if="{{index<4 && index!=1}}">{{item}}</view>
+      </block>
+    </view>
+  </view>
+  <view class="weui-tab">
+    <view class="weui-navbar">
+      <block wx:for="{{tabs}}" wx:key="*this">
+        <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+          <view class="weui-navbar__title">{{item}}</view>
+        </view>
+      </block>
+      <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+    </view>
+    <view class="weui-tab__panel">
+      <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+        <view class='table'>
+          <view class='tr thheader'>
+            <view id="{{index}}" class="th weui-navbar__item" bindtap="tabGameClick" id='pre'>前10场</view>
+            <view id="{{index}}" class="th weui-navbar__item" bindtap="tabGameClick" id='next'>后10场</view>
+          </view>
+          <block wx:for="{{schedule[currentIndex]}}" wx:for-item="item" wx:key="{{index}}">
+            <view class="str {{index%2==0?'odd':''}}">
+              <view class='std '>
+                <view class='hiddenTime'>{{item.hidden}}</view>
+                <view class='gameweek'>{{item.gameweek}}</view>
+              </view>
+              <view class='std team'>
+                <navigator url='/pages/detail/detail?type=team&id={{item.away.awayLink}}'>
+                  <view>
+                    <view class='teamName'>{{item.away.awayName}}</view>
+                    <image class='teamImg' src='{{item.away.awayImg}}'></image>
+                  </view>
+                </navigator>
+              </view>
+              <view class="std result {{item.result==0?'v':(item.result==1?'l':(item.result==2?'d':''))}}">{{item.status}}</view>
+              <view class='std team'>
+                <navigator url='/pages/detail/detail?type=team&id={{item.home.homeLink}}'>
+                  <view>
+                    <view class='teamName'>{{item.home.homeName}}</view>
+                    <image class='teamImg' src='{{item.home.homeImg}}'></image>
+                  </view>
+                </navigator>
+              </view>
+            </view>
+          </block>
+        </view>
+      </view>
+      <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+        <view class='teamplayerHeader'>教练</view>
+        <block wx:for="{{member.coach}}" wx:key="{{index}}">
+          <view class='teamplayercon' wx:if="{{index%2==0}}">
+            <view class='left'>
+              <image src='{{member.coach[index].player.playerImg}}' class='pImg'></image>
+              <view class='info'>
+                <view class='pname'>
+                  <view>
+                    {{member.coach[index].player.playerName}}
+                  </view>
+                  <image src='{{member.coach[index].int}}' class='goalImg'></image>
+                </view>
+                <view class='pnum'>{{member.coach[index].num}}</view>
+              </view>
+            </view>
+            <view class='line'></view>
+            <view class='right' wx:if="{{member.coach[index+1]!=null}}">
+              <image src='{{member.coach[index+1].player.playerImg}}' class='pImg'></image>
+              <view class='info'>
+                <view class='pname'>
+                  <view>
+                    {{member.coach[index+1].player.playerName}}
+                  </view>
+                  <image src='{{member.coach[index+1].int}}' class='goalImg'></image>
+                </view>
+                <view class='pnum'>{{member.coach[index+1].num}}</view>
+              </view>
+            </view>
+          </view>
+        </block>
+        <view class='teamplayerHeader'>前锋</view>
+        <block wx:for="{{member.striker}}" wx:key="{{index}}">
+          <view class='teamplayercon' wx:if="{{index%2==0}}">
+            <view class='left' bindtap='toPlayerInfo' data-url='{{member.striker[index].player.playerLink}}'>
+              <image src='{{member.striker[index].player.playerImg}}' class='pImg'></image>
+              <view class='info'>
+                <view class='pname'>
+                  <view>
+                    {{member.striker[index].player.playerName}}
+                  </view>
+                  <image src='{{member.striker[index].int}}' class='goalImg'></image>
+                </view>
+                <view class='pnum'>
+                  <view>
+                    {{member.striker[index].num}}号
+                  </view>
+                  <view class='data' wx:if="{{member.striker[index].goal!=0}}">
+                    <view class='goalNum'>{{member.striker[index].goal}}</view>
+                    <image src='../../img/icon_goal.png' class='goalImg'></image>
+                  </view>
+                </view>
+              </view>
+
+            </view>
+            <view class='line'></view>
+            <view class='right' wx:if="{{member.striker[index+1]!=null}}" bindtap='toPlayerInfo' data-url='{{member.striker[index+1].player.playerLink}}'>
+              <image src='{{member.striker[index+1].player.playerImg}}' class='pImg'></image>
+              <view class='info'>
+                <view class='pname'>
+                  <view>
+                    {{member.striker[index+1].player.playerName}}
+                  </view>
+                  <image src='{{member.striker[index+1].int}}' class='goalImg'></image>
+                </view>
+                <view class='pnum'>
+                  <view>
+                    {{member.striker[index+1].num}}号
+                  </view>
+                  <view class='data' wx:if="{{member.striker[index+1].goal!=0}}">
+                    <view class='goalNum'>{{member.striker[index+1].goal}}</view>
+                    <image src='../../img/icon_goal.png' class='goalImg'></image>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </block>
+        <view class='teamplayerHeader'>中场</view>
+        <block wx:for="{{member.midfield}}" wx:key="{{index}}">
+          <view class='teamplayercon' wx:if="{{index%2==0}}">
+            <view class='left' bindtap='toPlayerInfo' data-url='{{member.midfield[index].player.playerLink}}'>
+              <image src='{{member.midfield[index].player.playerImg}}' class='pImg'></image>
+              <view class='info'>
+                <view class='pname'>
+                  <view>
+                    {{member.midfield[index].player.playerName}}
+                  </view>
+                  <image src='{{member.midfield[index].int}}' class='goalImg'></image>
+                </view>
+                <view class='pnum'>
+                  <view>
+                    {{member.midfield[index].num}}号
+                  </view>
+                  <view class='data' wx:if="{{member.midfield[index].goal!=0}}">
+                    <view class='goalNum'>{{member.midfield[index].goal}}</view>
+                    <image src='../../img/icon_goal.png' class='goalImg'></image>
+                  </view>
+                </view>
+              </view>
+            </view>
+            <view class='line'></view>
+            <view class='right' wx:if="{{member.midfield[index+1]!=null}}" bindtap='toPlayerInfo' data-url='{{member.midfield[index+1].player.playerLink}}'>
+              <image src='{{member.midfield[index+1].player.playerImg}}' class='pImg'></image>
+              <view class='info'>
+                <view class='pname'>
+                  <view>
+                    {{member.midfield[index+1].player.playerName}}
+                  </view>
+                  <image src='{{member.midfield[index+1].int}}' class='goalImg'></image>
+                </view>
+                <view class='pnum'>
+                  <view>{{member.midfield[index+1].num}}号</view>
+                  <view class='data' wx:if="{{member.midfield[index+1].goal!=0}}">
+                    <view class='goalNum'>{{member.midfield[index+1].goal}}</view>
+                    <image src='../../img/icon_goal.png' class='goalImg'></image>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </block>
+        <view class='teamplayerHeader'>后卫</view>
+        <block wx:for="{{member.defender}}" wx:key="{{index}}">
+          <view class='teamplayercon' wx:if="{{index%2==0}}">
+            <view class='left' bindtap='toPlayerInfo' data-url='{{member.defender[index].player.playerLink}}'>
+              <image src='{{member.defender[index].player.playerImg}}' class='pImg'></image>
+              <view class='info'>
+                <view class='pname'>
+                  <view>
+                    {{member.defender[index].player.playerName}}
+                  </view>
+                  <image src='{{member.defender[index].int}}' class='goalImg'></image>
+                </view>
+                <view class='pnum'>
+                  <view>{{member.defender[index].num}}号</view>
+                  <view class='data' wx:if="{{member.defender[index].goal!=0}}">
+                    <view class='goalNum'>{{member.defender[index].goal}}</view>
+                    <image src='../../img/icon_goal.png' class='goalImg'></image>
+                  </view>
+                </view>
+              </view>
+            </view>
+            <view class='line'></view>
+            <view class='right' wx:if="{{member.defender[index+1]!=null}}" bindtap='toPlayerInfo' data-url='{{member.defender[index+1].player.playerLink}}'>
+              <image src='{{member.defender[index+1].player.playerImg}}' class='pImg'></image>
+              <view class='info'>
+                <view class='pname'>
+                  <view>
+                    {{member.defender[index+1].player.playerName}}
+                  </view>
+                  <image src='{{member.defender[index+1].int}}' class='goalImg'></image>
+                </view>
+                <view class='pnum'>
+                  <view>{{member.defender[index+1].num}}号</view>
+                  <view class='data' wx:if="{{member.defender[index+1].goal!=0}}">
+                    <view class='goalNum'>{{member.defender[index+1].goal}}</view>
+                    <image src='../../img/icon_goal.png' class='goalImg'></image>
+                  </view>
+                </view>
+              </view>
+
+            </view>
+          </view>
+        </block>
+        <view class='teamplayerHeader'>守门员</view>
+        <block wx:for="{{member.goalkeeper}}" wx:key="{{index}}">
+          <view class='teamplayercon' wx:if="{{index%2==0}}">
+            <view class='left' bindtap='toPlayerInfo' data-url='{{member.goalkeeper[index].player.playerLink}}'>
+              <image src='{{member.goalkeeper[index].player.playerImg}}' class='pImg'></image>
+              <view class='info'>
+                <view class='pname'>
+                  <view>
+                    {{member.goalkeeper[index].player.playerName}}
+                  </view>
+                  <image src='{{member.goalkeeper[index].int}}' class='goalImg'></image>
+                </view>
+                <view class='pnum'>
+                  <view>{{member.goalkeeper[index].num}}号</view>
+                  <view class='data' wx:if="{{member.goalkeeper[index].goal!=0}}">
+                    <view class='goalNum'>{{member.goalkeeper[index].goal}}</view>
+                    <image src='../../img/icon_goal.png' class='goalImg'></image>
+                  </view>
+                </view>
+              </view>
+
+            </view>
+            <view class='line'></view>
+            <view class='right' wx:if="{{member.goalkeeper[index+1]!=null}}" bindtap='toPlayerInfo' data-url='{{member.goalkeeper[index+1].player.playerLink}}'>
+              <image src='{{member.goalkeeper[index+1].player.playerImg}}' class='pImg'></image>
+              <view class='info'>
+                <view class='pname'>
+                  <view>
+                    {{member.goalkeeper[index+1].player.playerName}}
+                  </view>
+                  <image src='{{member.goalkeeper[index+1].int}}' class='goalImg'></image>
+                </view>
+                <view class='pnum'>
+                  <view>{{member.goalkeeper[index+1].num}}号</view>
+                  <view class='data' wx:if="{{member.goalkeeper[index+1].goal!=0}}">
+                    <view class='goalNum'>{{member.goalkeeper[index+1].goal}}</view>
+                    <image src='../../img/icon_goal.png' class='goalImg'></image>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </block>
+      </view>
+      <view class="weui-tab__content" hidden="{{activeIndex != 2}}">
+        <view class='dataHeader'>
+          <view class='leftline'></view>
+          <view>基本资料</view>
+        </view>
+        <block wx:for="{{team.detailInfo}}" wx:key="{{index}}">
+          <view class='teamDetailInfo'>{{item}}</view>
+        </block>
+        <view class='dataHeader'>
+          <view class='leftline'></view>
+          <view>荣誉记录</view>
+        </view>
+        <view class="table">
+          <block wx:for="{{honour}}" wx:for-item="item" wx:key="{{index}}">
+            <view class="str honour {{index%2==1?'odd':''}} ">
+              <view class='std img'>
+                <image class='honourImg' src='{{item.honourImg}}'></image>
+              </view>
+              <view class='std honourName'>{{item.honourName}}</view>
+              <view class='std honourTime'>{{item.honourTime}}</view>
+            </view>
+          </block>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

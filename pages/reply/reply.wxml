@@ -1,0 +1,92 @@
+<view class="page">
+  <view class='header'>
+    <image src="{{comment.STATUE==1?'../../img/bg_close.jpg':comment.IMG}}" class='headImg'></image>
+    <view class='headInfo'>
+      <view class='name' bindtap='toUserInfo' data-id='{{comment.USER_ID}}'>{{comment.USERNAME}}</view>
+      <view class='time'>{{comment.CREATED}}</view>
+    </view>
+  </view>
+  <view class='content'>
+    <view class='contents'>{{comment.CONTENT}}</view>
+  </view>
+  <view wx:if="{{comment.URL!=''}}">
+    <image src='{{comment.URL}}'></image>
+  </view>
+  <view class='line'>
+    <view class='hd_left'>
+      <view class='logo'></view>
+      全部回复 ({{comment.REPLYNUM}})
+    </view>
+    <view class='btn'>
+      <button class="weui-btn mini-btn" type="default" size="mini" bindtap='bytime'>{{btnMsg}}</button>
+    </view>
+  </view>
+  <view class='commentList' wx:if="{{replyList!=null && replyList.length!=0}}">
+    <block wx:for="{{replyList}}" wx:key="{{index}}">
+      <view class='commentHeader'>
+        <view class='table'>
+          <view class='tr'>
+            <view class='td userImg'>
+              <image src="{{item.STATUE==1?'../../img/bg_close.jpg':item.IMG}}" class='commentImg'></image>
+            </view>
+            <view class='td info'>
+              <view class='commmentInfo'>
+                <view class='commentName' bindtap='toUserInfo' data-id='{{item.USER_ID}}'>{{item.USERNAME}}</view>
+                <view class='commentTime'>{{item.CREATED}}</view>
+              </view>
+            </view>
+            <view class='td zan'>
+              <view class='count'>{{item.COUNT}}</view>
+              <image src='../../img/icon_zan_unselected.png' class='zanImg' bindtap='handlezan' data-id='{{index}}'></image>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class='commentContent'>
+        <view class='comments'>{{item.CONTENT}}</view>
+        <view wx:if="{{item.URL!=null && item.URL!=''}}">
+          <image src='{{item.URL}}' bindtap='scanPic' data-url="{{item.URL}}"></image>
+        </view>
+      </view>
+      <!--弹窗-->
+      <view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+      <view class="modal-dialog" wx:if="{{showModal}}">
+        <view class="modal-title">举报</view>
+        <view class="modal-content">
+          <radio-group class="radio-group" bindchange="radioChange">
+            <label class="radio" wx:for="{{items}}" wx:key="{{index}}">
+              <radio value="{{item.value}}" checked="{{item.checked}}" />{{item.name}}
+            </label>
+          </radio-group>
+        </view>
+        <view class="modal-footer">
+          <view class="btn-cancel" bindtap="onCancel" data-status="cancel">取消</view>
+          <view class="btn-confirm" bindtap="onConfirm" data-status="confirm">确定</view>
+        </view>
+      </view>
+      <view class='comment'>
+        <image src='../../img/icon_report.png' class='CommentArticle' bindtap='showDialogBtn' data-id="{{index}}"></image>
+        <image src='../../img/icon_comment.png' class='CommentArticle' data-type="reply" bindtap="bindReply" data-id="{{index}}"></image>
+      </view>
+      <view class='line'></view>
+    </block>
+    <view class="weui-loadmore weui-loadmore_line" hidden='{{nomore}}'>
+      <view class="weui-loadmore__tips weui-loadmore__tips_in-line">暂无数据</view>
+    </view>
+  </view>
+
+  <!-- 回复框 -->
+
+  <view class='release' hidden="{{!releaseFocus}}">
+    <view class='ct'>
+      <textarea class="text" placeholder-class="input_null" fixed="true" maxlength="-1" show-confirm-bar="false" cursor-spacing="15" auto-height="true" focus="{{releaseFocus}}" placeholder="回复 {{releaseName}}" bindinput='bindInput'></textarea>
+      <image src='../../img/icon_add.png' class='addImg' bindtap='add'></image>
+      <view class="submit" bindtap='submit'>发送</view>
+    </view>
+    <view class='hiddenContent' hidden='{{add}}'>
+      <view>
+        <image src='{{ImgUrl}}' bindtap='upload' class='picImg'></image>
+      </view>
+    </view>
+  </view>
+</view>

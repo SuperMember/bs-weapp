@@ -1,0 +1,163 @@
+<import src="../../wxParse/wxParse.wxml" />
+<view class="page">
+  <!--帖子  -->
+  <view wx:if="{{i==0}}">
+    <view class='header'>
+      <image src="{{article.STATUE==1?'../../img/bg_close.jpg':article.IMG}}" class='headImg'></image>
+      <view class='headInfo'>
+        <view class='name' bindtap='toUserInfo' data-id='{{article.USER_ID}}'>{{article.USERNAME}}</view>
+        <view class='time'>{{article.CREATED}}</view>
+      </view>
+    </view>
+    <view class='content'>
+      <view class='title'>{{article.TITLE}}</view>
+      <view class='contents'>{{article.CONTENT}}</view>
+    </view>
+    <view class='imgs' wx:if="{{imgs!=null && imgs.length!=0 && imgs[0]!=''}}">
+      <block wx:for="{{imgs}}" wx:key="{{index}}">
+        <image src='{{item}}' bindtap='scanPic' data-id="{{index}}"></image>
+      </block>
+    </view>
+
+  </view>
+  <!--视频  -->
+  <view wx:elif="{{i==1}}">
+    <view class="section tc">
+      <video id="myVideo" src="{{article.CONTENT}}" enable-danmu danmu-btn controls></video>
+      <!-- <view class="btn-area">
+        <input bindblur="bindInputBlur" />
+        <button bindtap="bindSendDanmu">发送弹幕</button>
+      </view> -->
+      <view class='videoHeader'>
+        <view class='content'>{{article.TITLE}}</view>
+      </view>
+      <view bindtap='handleDetail' class='detailcon'>
+        <view class='detailleft'>
+          <image src='../../img/icon_playvideo.png'  class='videoImg'></image>
+          <view>
+            {{article.playCount}}
+          </view>
+        </view>
+        <view class='detail'>
+          <view>{{detail}}</view>
+          <image src='{{arrowImg}}' class='arrowImg'></image>
+        </view>
+      </view>
+      <view class='hidden' hidden='{{!down}}'>
+        <view class='stitle'>
+          {{article.STITLE}}
+        </view>
+        <view class='articleInfo'>
+          <view class='username' bindtap='toUserInfo' data-id='{{article.USERID}}'>{{article.USERNAME}}</view>
+          <view class='time'>{{article.CREATED}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!--文章  -->
+  <view wx:else>
+    <view class='articleContainer'>
+      <view class='articleHeader'>{{article.TITLE}}</view>
+      <view class='articleInfo'>
+        <view class='username' bindtap='toUserInfo' data-id='{{article.USERID}}'>{{article.USERNAME}}</view>
+        <view class='time'>{{article.CREATED}}</view>
+      </view>
+      <view wx:if="{{i==2}}">
+        <template is="wxParse" data="{{wxParseData:article_content.nodes}}" />
+      </view>
+    </view>
+
+  </view>
+  <!--弹窗-->
+  <view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+  <view class="modal-dialog" wx:if="{{showModal}}">
+    <view class="modal-title">举报</view>
+    <view class="modal-content">
+      <radio-group class="radio-group" bindchange="radioChange">
+        <label class="radio" wx:for="{{items}}" wx:key="{{index}}">
+          <radio value="{{item.value}}" checked="{{item.checked}}" />{{item.name}}
+        </label>
+      </radio-group>
+    </view>
+    <view class="modal-footer">
+      <view class="btn-cancel" bindtap="onCancel" data-status="cancel">取消</view>
+      <view class="btn-confirm" bindtap="onConfirm" data-status="confirm">确定</view>
+    </view>
+  </view>
+  <view class='comment'>
+    <image src='../../img/icon_report.png' class='CommentArticle' bindtap='showDialogBtn'></image>
+    <image src='../../img/icon_comment.png' class='CommentArticle' data-type="comment" bindtap="bindReply"></image>
+  </view>
+  <view class='hd'>
+    <view class='hd_left'>
+      <view class='logo'></view>
+      精彩评论 ( {{count}} )
+    </view>
+    <view class='btn'>
+      <button class="weui-btn mini-btn" type="default" size="mini" bindtap='bytime'>{{btnMsg}}</button>
+    </view>
+  </view>
+  <view class='commentList' wx:if="{{commentList!=null && commentList.length!=0}}">
+    <block wx:for="{{commentList}}" wx:key="{{index}}">
+      <view class='commentHeader'>
+        <view class='table'>
+          <view class='tr'>
+            <view class='td userImg'>
+              <image src="{{item.STATUE==1?'../../img/bg_close.jpg':item.IMG}}" class='commentImg'></image>
+            </view>
+            <view class='td info'>
+              <view class='commmentInfo'>
+                <view class='commentName' bindtap='toUserDetail' data-id='{{item.USER_ID}}'>{{item.USERNAME}}</view>
+                <view class='commentTime'>{{item.CREATED}}</view>
+              </view>
+            </view>
+            <view class='td zan'>
+              <view class='count'>{{item.COUNT}}</view>
+              <image src="{{item.COUNT>20?'../../img/icon_zan_selected.png':'../../img/icon_zan_unselected.png'}}" bindtap='handerZan' data-id="{{index}}" class='zanImg'></image>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class='commentContent'>
+        <view class='comments'>{{item.CONTENT}}</view>
+        <view wx:if="{{item.URL!=''}}">
+          <image src='{{item.URL}}' bindtap='scanImg' data-url='{{item.URL}}' class='commentPic'></image>
+        </view>
+      </view>
+      <view class='reply replyCt' wx:if="{{item.reply!=null && item.reply.length!=0}}">
+        <block wx:for="{{item.reply}}" wx:for-item="reply" wx:key="{{i}}">
+          <view class='replyInfo'>
+            <view class='replyUserName' bindtap='toUserInfo' data-id='{{item.USER_ID}}'>{{reply.USERNAME}}</view>
+            <view>: {{reply.CONTENT}}</view>
+            <view wx:if="{{reply.URL!=null && reply.URL!=''}}" bindtap="go" class='imgLink' data-url="{{reply.URL}}">图片链接</view>
+          </view>
+        </block>
+        <view class='replys' bindtap='todetail' data-id='{{index}}'>共{{item.REPLYNUM}}条回复</view>
+      </view>
+      <view class='comment'>
+        <image src='../../img/icon_report.png' class='CommentArticle' bindtap='showDialogBtn' data-id="{{index}}"></image>
+        <image src='../../img/icon_comment.png' class='CommentArticle' data-type="reply" bindtap="bindReply" data-id="{{index}}"></image>
+      </view>
+      <view class='line'></view>
+    </block>
+  </view>
+  <view wx:if="{{commentList==null || commentList.length==0 || noMore}}">
+    <view class="weui-loadmore weui-loadmore_line">
+      <view class="weui-loadmore__tips weui-loadmore__tips_in-line">暂无数据</view>
+    </view>
+  </view>
+  <!-- 回复框 -->
+
+  <view class='release' hidden="{{!releaseFocus}}">
+    <view class='ct'>
+      <textarea class="text" placeholder-class="input_null" fixed="true" maxlength="-1" show-confirm-bar="false" cursor-spacing="15" auto-height="true" focus="{{releaseFocus}}" placeholder="回复 {{releaseName}}" bindinput='bindInput'></textarea>
+      <image src='../../img/icon_add.png' class='addImg' bindtap='add'></image>
+      <view class="submit" bindtap='submit'>发送</view>
+    </view>
+    <view class='hiddenContent' hidden='{{add}}'>
+      <view>
+        <image src='{{ImgUrl}}' bindtap='upload' class='picImg'></image>
+      </view>
+    </view>
+  </view>
+</view>

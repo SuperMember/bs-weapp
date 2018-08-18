@@ -1,0 +1,242 @@
+/* pages/circleDetail/circleDetail.wxss */
+
+page {
+}
+
+.header {
+  /* background: url('http://img.bizhi.sogou.com/images/2012/02/11/25025.jpg') no-repeat; */
+  color: #f8f8f8;
+  height: 350rpx;
+  background-size: 100% 100%;
+  background-position: center;
+}
+
+.headerItem {
+  display: flex;
+  align-items: center;
+  padding-top: 80px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.info-img {
+  border-radius: 10px;
+  width: 100rpx;
+  margin-left: 10px;
+  height: 130rpx;
+}
+
+.info {
+  font-size: 15px;
+  text-align: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  align-items: center;
+}
+
+.table {
+  border-right: 0;
+  border-bottom: 0;
+  width: 100%;
+}
+
+.tr {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  /* padding-top: 5px;
+  margin-bottom: 10px; */
+}
+
+.td {
+  text-align: center;
+  padding: 0px;
+}
+
+.btn {
+  width: 20%;
+  margin: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circleinfo {
+  margin-left: 5px;
+  width: 65%;
+  display: flex;
+  align-items: center;
+}
+
+.circleimg {
+  width: 15%;
+}
+
+.detail {
+  font-size: 12px;
+}
+
+.listImg {
+  width: 40px;
+  height: 40px;
+  background-color: #efefef; /* Can be set to transparent */
+  -webkit-border-radius: 100px;
+  border: 2px #1296db solid;
+}
+
+.opImg {
+  width: 40px;
+  height: 40px;
+  background-color: #efefef; /* Can be set to transparent */
+  -webkit-border-radius: 100px;
+}
+
+.list_header {
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 10px;
+  padding-top: 10px;
+  padding-right: 10px;
+}
+
+.content {
+  font-size: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.contents {
+  font-size: 13px;
+  color: #bebebe;
+}
+
+.listInfo {
+  padding-left: 10px;
+}
+
+.name {
+  color: #12dddd;
+}
+
+.line {
+  background-color: #bebebe;
+  height: 1px;
+  clear: both;
+}
+
+.comment {
+  color: #bebebe;
+  font-size: 12px;
+  display: flex;
+  float: right;
+  padding-right: 10px;
+}
+
+.contentImg {
+  padding-left: 15px;
+  width: 100px;
+  height: 100px;
+}
+
+.operation {
+  position: fixed;
+  top: 80%;
+  left: 80%;
+  z-index: 9999;
+}
+
+button {
+  font-size: 10px;
+}
+
+.listHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.left{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 12px;
+}
+.logo{
+  margin-right: 5px;
+  width: 5px;
+  height: 20px;
+  background-color: #1296db;
+}
+.btn {
+  display: flex;
+  align-items: center;
+}
+
+.line2 {
+  height: 5px;
+  background-color: #f5f5f5;
+}
+
+.topImg {
+  margin-right: 5px;
+  width: 45px;
+  height: 25px;
+}
+
+.top {
+  margin: 10px;
+}
+
+.topImgcon {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.title, .content {
+  font-size: 12px;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.circle {
+  width: 5px;
+  height: 5px;
+  margin-right: 10px;
+  background-color: #1296db; /* Can be set to transparent */
+  -webkit-border-radius: 100px;
+}
+.picker{
+  padding: 5px;
+  border: 1px solid #f5f5f5;
+  border-radius: 5px;
+  font-size: 12px;
+}
+.rankImg{
+  width: 45px;
+  height: 25px;
+  margin-right: 5px;
+}
+.rankUserImg{
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
+  background-color: #1296db; /* Can be set to transparent */
+  -webkit-border-radius: 100px;
+}
+.rank{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.rankUser{
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}

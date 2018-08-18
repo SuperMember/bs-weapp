@@ -1,0 +1,305 @@
+<view>
+  <view class='gameInfoHeader'>
+    <view class='header'>
+      <navigator url='/pages/detail/detail?type=team&id={{header.teamInfo[0].team}}'>
+        <image src='{{header.teamInfo[0].img}}' class='teamImg'></image>
+        <view class='navTeam'>{{header.teamInfo[0].teamName}}</view>
+      </navigator>
+      <view>
+        <block wx:for="{{header.stat}}" wx:key="{{index}}">
+          <view class='tr'>
+            <view class='td'>
+              <view class='headerInfo'>{{item}}</view>
+            </view>
+          </view>
+        </block>
+      </view>
+      <navigator url='/pages/detail/detail?type=team&id={{header.teamInfo[1].team}}'>
+        <image src='{{header.teamInfo[1].img}}' class='teamImg'></image>
+        <view class='navTeam'>{{header.teamInfo[1].teamName}}</view>
+      </navigator>
+    </view>
+    <view class='proportion'>
+      <view class='pleft' style='width:{{leftwidth}};'></view>
+      <view class='pright' style='width:{{rightwidth}};'></view>
+    </view>
+    <view class='zan'>
+      <view class='left'>
+        <image src='../../img/icon_zan_selected.png' class='zanImg' bindtap='handerZan' data-type='left'></image>
+        <view class='num'>{{left}}</view>
+      </view>
+      <view class='right'>
+        <view class='num'>{{right}}</view>
+        <image src='../../img/icon_zan_selected.png' class='zanImg' bindtap='handerZan' data-type='right'></image>
+      </view>
+    </view>
+  </view>
+
+  <view class="page__bd">
+    <view class="weui-tab">
+      <view class="weui-navbar">
+        <block wx:for="{{tabs}}" wx:key="*this">
+          <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+            <view class="weui-navbar__title">{{item}}</view>
+          </view>
+        </block>
+        <!-- <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view> -->
+      </view>
+      <view class="weui-tab__panel">
+        <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+          <!-- 赛况 -->
+          <view class='rank'>
+            <view class='logo'></view>
+            <view>
+              事件
+            </view>
+          </view>
+          <view class='eventHeader'>
+            <view class=''>
+              <navigator url='/pages/detail/detail?type=team&id={{header.teamInfo[0].team}}' class='eventNav'>
+                <view>{{header.teamInfo[0].teamName}}</view>
+                <image src='{{header.teamInfo[0].img}}' class='timg'></image>
+              </navigator>
+            </view>
+            <!-- <rich-text>{{header.stat}}</rich-text>  -->
+            <navigator class='eventNav' url='/pages/detail/detail?type=team&id={{header.teamInfo[1].team}}'>
+              <image src='{{header.teamInfo[1].img}}' class='timg'></image>
+              <view>{{header.teamInfo[1].teamName}}</view>
+            </navigator>
+          </view>
+          <view class='gameHeader' wx:if="{{gameDetail.event!=null}}">
+            <image src='../../img/icon_time.png' class='timeImg'></image>
+          </view>
+          <view class='gameHeadercircle' wx:if="{{gameDetail.event!=null}}">
+            <!-- <image src='../../img/icon_point.png' class='timeImg'></image> -->
+            <view class='circle'></view>
+          </view>
+          <view class='timeEvent table'>
+            <block wx:for="{{gameDetail.event}}" wx:key="{{index}}">
+              <view class='tr gameList'>
+                <view class="td left {{item.position=='home'?'border':'transborder'}}">
+                  <view class='table'>
+                    <block wx:for="{{item.person}}" wx:for-item="i" wx:key="{{i}}" wx:if="{{item.position=='home'}}">
+                      <view class='tr person'>
+                        <image src='{{i.img}}' class='personImg'></image>
+                        <view>{{i.name}}</view>
+                      </view>
+                    </block>
+                  </view>
+                </view>
+                <view class='td time'>
+                  {{item.time}}
+                </view>
+                <view class="td right {{item.position=='away'?'border':'transborder'}}">
+                  <view class='table'>
+                    <block wx:if="{{item.position=='away'}}" wx:for="{{item.person}}" wx:for-item="i" wx:key="{{i}}">
+                      <view class='person'>
+                        <image src='{{i.img}}' class='personImg'></image>
+                        <view>{{i.name}}</view>
+                      </view>
+                    </block>
+                  </view>
+                </view>
+              </view>
+            </block>
+          </view>
+          <view class='gameHeadercirclebottom' wx:if="{{gameDetail.event!=null}}">
+            <!-- <image src='../../img/icon_point.png' class='timeImg'></image> -->
+            <view class='circle'></view>
+          </view>
+          <view class='gameHeader' wx:if="{{gameDetail.event!=null}}">
+            <image src='../../img/icon_game_end.png' class='timeImg'></image>
+          </view>
+          <view class='footer' wx:if="{{gameDetail.event!=null}}">
+            <view class='span'>
+              <image src='../../img/icon_span_goal.png' class='img'></image>
+              <view>进球</view>
+            </view>
+            <view class='span'>
+              <image src='../../img/icon_span_dianqiu.png' class='img'></image>
+              <view>点球</view>
+            </view>
+            <view class='span'>
+              <image src='../../img/icon_span_dianqiu_1.png' class='img'></image>
+              <view>点球未进</view>
+            </view>
+            <view class='span'>
+              <image src='../../img/icon_span_w.png' class='img'></image>
+              <view>乌龙球</view>
+            </view>
+            <view class='span'>
+              <image src='../../img/icon_span_a.png' class='img'></image>
+              <view>助攻</view>
+            </view>
+          </view>
+          <view class='rank'>
+            <view class='logo'></view>
+            <view>
+              技术统计
+            </view>
+          </view>
+          <view class='eventHeader'>
+            <view class=''>
+              <navigator url='/pages/detail/detail?type=team&id={{header.teamInfo[0].team}}' class='eventNav'>
+                <view>{{header.teamInfo[0].teamName}}</view>
+                <image src='{{header.teamInfo[0].img}}' class='timg'></image>
+              </navigator>
+            </view>
+            <!-- <rich-text>{{header.stat}}</rich-text>  -->
+            <navigator class='eventNav' url='/pages/detail/detail?type=team&id={{header.teamInfo[1].team}}'>
+              <image src='{{header.teamInfo[1].img}}' class='timg'></image>
+              <view>{{header.teamInfo[1].teamName}}</view>
+            </navigator>
+          </view>
+          <view class='count'>
+            <view class='table'>
+              <block wx:for="{{gameDetail.statue}}" wx:key="{{index}}">
+                <view class='tr'>
+                  <view class='td data'>
+                    <view class='lineData'>{{item.away}}</view>
+                    <view class='line' style='width:{{100-item.away}}%;'></view>
+                    <view class='line' style='width:{{item.away}}%;background-color:#1296DB'></view>
+                  </view>
+                  <view class='td dataName'>{{item.statue}}</view>
+                  <view class='td data'>
+                    <view class='line' style='width:{{item.home}}%;background-color:#1296DB'></view>
+                    <view class='line' style='width:{{100-item.home}}%;'></view>
+                    <view class='lineData'>{{item.home}}</view>
+                  </view>
+                </view>
+              </block>
+            </view>
+          </view>
+        </view>
+        <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+          <view class='eventHeader'>
+            <view class=''>
+              <navigator url='/pages/detail/detail?type=team&id={{header.teamInfo[0].team}}' class='eventNav'>
+                <view>{{header.teamInfo[0].teamName}}</view>
+                <image src='{{header.teamInfo[0].img}}' class='timg'></image>
+              </navigator>
+            </view>
+            <!-- <rich-text>{{header.stat}}</rich-text>  -->
+            <navigator class='eventNav' url='/pages/detail/detail?type=team&id={{header.teamInfo[1].team}}'>
+              <image src='{{header.teamInfo[1].img}}' class='timg'></image>
+              <view>{{header.teamInfo[1].teamName}}</view>
+            </navigator>
+          </view>
+          <view class='table' wx:if="{{match_stat!=null}}">
+            <view class='str'>
+              <view class='th result'>号码</view>
+              <view class='th result'>位置</view>
+              <view class='th info'>姓名</view>
+              <view class='th info'>姓名</view>
+              <view class='th result'>位置</view>
+              <view class='th result'>号码</view>
+            </view>
+            <block wx:for="{{match_stat}}" wx:key="{{index}}">
+              <view class='tr' wx:if="{{index < 11}}">
+                <view class='td result'>{{item.away_num}}</view>
+                <view class='td result'>{{item.away_position}}</view>
+                <view class='td info'>
+                  <navigator url='/pages/player/player?id={{item.away_info.away_link}}'>
+                    <view class='playerInfo'>
+                      {{item.away_info.away_play_name}}
+                    </view>
+                    <image src='{{item.away_info.away_img}}' class='img'></image>
+                  </navigator>
+                </view>
+                <view class='td info'>
+                  <navigator url='/pages/player/player?id={{item.home_info.home_link}}'>
+                    <view class='playerInfo'>
+                      {{item.home_info.home_play_name}}
+                    </view>
+                    <image src='{{item.home_info.home_img}}' class='img'></image>
+                  </navigator>
+                </view>
+                <view class='td result'>{{item.home_position}}</view>
+                <view class='td result'>{{item.home_num}}</view>
+              </view>
+            </block>
+          </view>
+          <view class='rank'>
+            <view class='logo'></view>
+            <view>替补阵容</view>
+          </view>
+          <view class='table'>
+            <block wx:for="{{match_toprank}}" wx:key="{{index}}">
+              <view class='tr'>
+                <view class='td result'>{{item.away_rank_num}}</view>
+                <view class='td result'>{{item.away_rank_position}}</view>
+                <view class='td info'>
+                  <navigator url='/pages/player/player?id={{item.away_rank_info.away_rank_link}}'>
+                    <view>{{item.away_rank_info.away_rank_play_name}}</view>
+                    <image src='{{item.away_rank_info.away_rank_img}}' class='img'></image>
+                  </navigator>
+                </view>
+                <view class='td info'>
+                  <navigator url='/pages/player/player?id={{item.home_rank_info.home_rank_link}}'>
+                    <view>{{item.home_rank_info.home_rank_play_name}}</view>
+                    <image src='{{item.home_rank_info.home_rank_img}}' class='img'></image>
+                  </navigator>
+                </view>
+                <view class='td result'>{{item.home_rank_position}}</view>
+                <view class='td result'>{{item.home_rank_num}}</view>
+              </view>
+            </block>
+          </view>
+        </view>
+        <view class="weui-tab__content" hidden="{{activeIndex != 2}}">
+          <!--聊天室  -->
+          <view class='messageCon'>
+            <block wx:for="{{messageList}}" wx:key="{{index}}">
+              <view class='content'>
+                <image src='{{item.img}}' class='userImg'></image>
+                <view class='userName' bindtap='toDetail' data-id='{{item.id}}'>{{item.username}}:</view>
+                <view class='message'>{{item.message}}</view>
+              </view>
+              <view class='underline'></view>
+            </block>
+          </view>
+          <view class='release'>
+            <view class='ct'>
+              <!-- <textarea class="text" placeholder-class="input_null" fixed="true" maxlength="-1" show-confirm-bar="false" cursor-spacing="15" auto-height="true" focus='{{focus}}'  placeholder="评论" bindinput='bindInput'></textarea> -->
+              <input bindinput='bindInput' focus='{{focus}}' class="text" value='{{content}}' placeholder="{{message}}" disabled='{{isChatting}}'></input>
+              <view class="submit" bindtap='submit'>发送</view>
+            </view>
+          </view>
+        </view>
+        <view class="weui-tab__content" hidden="{{activeIndex != 3}}">
+          <!-- 集锦 -->
+          <block wx:for="{{highlights}}" wx:key="{{index}}" wx:if="{{highlights!=null && highlights.length!=0}}">
+            <view class='highlight'>
+              <image src='{{item.src}}' class='highImg'></image>
+              <view>{{item.text}}</view>
+            </view>
+          </block>
+          <view wx:if="{{highlights==null ||  highlights.length==0}}">暂无集锦</view>
+        </view>
+        <view class="weui-tab__content" hidden="{{activeIndex != 4}}">
+          <!-- 赔率 -->
+          <view class='oddheader'>
+            <block wx:for="{{titleList}}" wx:key="{{index}}">
+              <view id="{{index}}" class="data_title_btn " bindtap="tabTitleClick">
+                <button class=" {{currentIndex == index ? 'data_title_btn_click' : ''}}" size="mini">{{item.name}}</button>
+              </view>
+            </block>
+
+          </view>
+          <view class='table'>
+            <block wx:for="{{currentOdd}}" wx:key="{{index}}">
+              <view class='tr'>
+                <view class='td odd'>{{item.company}}</view>
+                <view class='td odd'>{{item.type}}</view>
+                <view class='td odd'>{{item.home}}</view>
+                <view class='td odd'>{{item.ball}}</view>
+                <view class='td odd'>{{item.away}}</view>
+                <view class='td odd'>{{item.time}}</view>
+              </view>
+            </block>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,430 @@
+page, .page, .page__bd {
+  height: 100%;
+}
+
+.page__bd {
+  padding-bottom: 0;
+}
+
+.weui-tab__content {
+  padding-top: 0px;
+  text-align: center;
+}
+
+.teamImg {
+  width: 80px;
+  height: 80px;
+}
+
+.weui-navbar__item.weui-bar__item_on {
+  color: #1296db;
+}
+
+.weui-navbar__slider {
+  background-color: #1296db;
+}
+
+.eventHeader {
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f5f5f5;
+}
+
+.timg {
+  width: 20px;
+  height: 20px;
+  padding: 10px;
+}
+
+.timeImg {
+  width: 20px;
+  height: 20px;
+}
+
+.gameHeadercircle, .gameHeadercirclebottom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gameHeadercircle {
+  margin-top: 5px;
+}
+
+.gameHeadercirclebottom{
+  margin-bottom: 5px;
+}
+
+.circle {
+  width: 10px;
+  height: 10px;
+  background-color: #1296db; /* Can be set to transparent */
+  -webkit-border-radius: 100px;
+}
+
+.eventNav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header {
+  padding-top: 60px;
+  padding-bottom: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 15px;
+  /* background: #0f0 url('http://119.29.73.127/group1/M00/00/02/CodEe1rMxGyAWXPTAAD6G5ZKLSE612.jpg') no-repeat;
+  background-size: 100% 100%; */
+}
+
+.gameInfoHeader {
+  background: #0f0 url('http://119.29.73.127/group1/M00/00/02/CodEe1rMxGyAWXPTAAD6G5ZKLSE612.jpg') no-repeat;
+  background-size: 100% 100%;
+}
+
+.time {
+  margin-left: 5px;
+  margin-right: 5px;
+  font-size: 13px;
+  color: white;
+  width: 20px;
+  height: 20px;
+  background-color: #1296db; /* Can be set to transparent */
+  -webkit-border-radius: 100px;
+}
+
+.person {
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+}
+
+.personImg {
+  width: 15px;
+  height: 15px;
+}
+
+.eventInfo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.table {
+  border-right: 0;
+  border-bottom: 0;
+  width: 100%;
+}
+
+.tr {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  /* padding-top: 5px;
+  margin-bottom: 10px; */
+  align-items: center;
+  padding-bottom: 5px;
+}
+
+.gameList {
+  background: url("http://119.29.73.127/group1/M00/00/03/CodEe1rhxCqAK-7SAAAOK4GcFxQ702.jpg") center center repeat-y;
+}
+
+.str {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.td {
+  text-align: center;
+  padding: 0px;
+}
+
+.left, .right {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+}
+
+.border {
+  border: 1px solid #bebebe;
+  border-radius: 5px;
+}
+
+.img {
+  width: 20px;
+  height: 20px;
+}
+
+.span, .footer {
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.span {
+  padding: 5px;
+}
+
+.arrow {
+  width: 10px;
+  height: 10px;
+}
+
+.transborder {
+  border: 1px solid #fff;
+  border-radius: 5px;
+}
+
+.data {
+  display: flex;
+  justify-content: center;
+  width: 35%;
+}
+
+.dataName {
+  font-size: 12px;
+  width: 30%;
+}
+
+.line {
+  width: 80%;
+  display: inline-block;
+  height: 12px;
+  background-color: #bebebe;
+}
+
+.lineData {
+  font-size: 12px;
+  width: 10%;
+}
+
+.data {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.result {
+  width: 15%;
+}
+
+.info {
+  width: 20%;
+}
+
+.result, .info {
+  font-size: 12px;
+}
+
+.logo {
+  margin-right: 5px;
+  height: 15px;
+  width: 5px;
+  background-color: #1296db;
+}
+
+.rank {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 15px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.highlight {
+  border: 1px solid #bebebe;
+  border-radius: 5px;
+  margin: 5px;
+  font-size: 15px;
+}
+
+.highImg {
+  width: 100%;
+}
+
+.data_title_btn_click {
+  background-color: #1296db;
+}
+
+.oddheader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 5px;
+}
+
+.odd {
+  width: 16%;
+  font-size: 15px;
+}
+
+.navTeam {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.navInfo {
+  display: flex;
+  align-items: center;
+  color: white;
+  width: 100%;
+}
+
+.headerInfo {
+  color: white;
+}
+
+.gameHeader {
+  text-align: center;
+  height: 20px;
+}
+
+.addImg {
+  width: 25px;
+  height: 25px;
+  margin-left: 5px;
+}
+
+.release {
+  width: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 999;
+  font-size: 28rpx;
+  background-color: #f7f8f7;
+  box-sizing: border-box;
+}
+
+.ct {
+  padding: 18rpx 0 18rpx 30rpx;
+  display: flex;
+  align-items: center; /*底部对齐*/
+  justify-content: space-between; /*两端对齐*/
+}
+
+.ct .text {
+  width: 604rpx;
+  min-height: 34rpx;
+  max-height: 102rpx; /*最多显示三行*/
+  border-width: 15rpx 20rpx; /*使用padding与预期留白不一致，故使用border*/
+  border-style: solid;
+  border-color: #fff;
+  line-height: 34rpx;
+  font-size: 28rpx;
+  background-color: #fff;
+  border-radius: 4rpx;
+}
+
+.input {
+  width: 100%;
+  height: 82rpx;
+  font-size: 28rpx;
+  line-height: 28rpx;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  color: #333;
+}
+
+.ct .submit {
+  width: 116rpx;
+  height: 64rpx;
+  line-height: 64rpx;
+  text-align: center;
+  color: #6c0;
+}
+
+.content {
+  margin: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.userImg {
+  width: 30px;
+  height: 30px;
+  background-color: #1296db; /* Can be set to transparent */
+  -webkit-border-radius: 100px;
+  border: 2px solid #1296db;
+}
+
+.userName, .message {
+  margin-left: 5px;
+  font-size: 15px;
+}
+
+.userName {
+  color: #1296db;
+}
+
+.underline {
+  height: 1px;
+  background-color: #f5f5f5;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.messageCon {
+  margin-bottom: 75rpx;
+}
+
+.zan {
+  padding-top: 5px;
+  padding-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.left, .right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.num {
+  margin: 3px;
+  color: white;
+  font-size: 12px;
+}
+
+.zanImg {
+  margin: 2px;
+  width: 20px;
+  height: 20px;
+}
+
+.proportion {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.pleft, .pright {
+  height: 5px;
+  width: 50%;
+}
+
+.pleft {
+  background-color: #1296db;
+}
+
+.pright {
+  background-color: red;
+}

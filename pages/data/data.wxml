@@ -1,0 +1,55 @@
+<import src="../templates/score.wxml" />
+<import src="../templates/goal.wxml" />
+<import src="../templates/schedule.wxml" />
+<view class="page">
+  <scroll-view scroll-y="true">
+    <view class="page__bd" hidden="{{hiddenContent}}">
+      <view class="weui-tab">
+        <!-- <scroll-view scroll-x="true" style="height:51px;">
+          <view class="weui-navbar"> -->
+            <!-- <block wx:for-items="{{bodyList}}" wx:for-item="item" wx:key="{{index}}">
+              <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+                <view class="weui-navbar__title">{{item.name}}</view>
+              </view>
+            </block> -->
+
+            
+            <!-- <view class="weui-navbar__slider" style="width:{{(windowHeight/bodyList.length/windowHeight*100)}}%; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view> -->
+            <!-- <block wx:for="{{tabs}}" wx:key="*this">
+            <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+              <view class="weui-navbar__title">{{item}}</view>
+            </view>
+          </block> 
+          <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>-->
+          <!-- </view>
+        </scroll-view> -->
+        <scroll-view scroll-x="true" class="tab-h" scroll-left="{{scrollLeft}}">
+              <block wx:for="{{bodyList}}" wx:key="{{index}}">
+                <view id="{{index}}" class="tab-item {{activeIndex==index?'active':''}}" data-current="{{index}}" bindtap="tabClick">{{item.name}}</view>
+              </block>
+            </scroll-view>
+        <view class="weui-tab__panel">
+          <view class='data_title'>
+            <view class='data_title_right'>
+              <block wx:for-items="{{titleList}}" wx:for-item="item" wx:key="{{index}}">
+                <view id="{{index}}" class="data_title_btn " bindtap="tabTitleClick">
+                  <button class=" {{currentIndex == index ? 'data_title_btn_click' : ''}}" size="mini">{{item.name}}</button>
+                </view>
+              </block>
+            </view>
+          </view>
+          <view>
+            <template wx:if="{{currentIndex==0}}" is="score" data="{{dataList,dataVisiable,toprank,bottomrank}}">
+            </template>
+            <template wx:if="{{currentIndex==1}}" is="goal" data="{{dataList,dataVisiable,name}}"></template>
+            <template wx:if="{{currentIndex==2}}" is="goal" data="{{dataList,dataVisiable,name}}"></template>
+            <template wx:if="{{currentIndex==3}}" is="schedule" data="{{dataList,dataVisiable,pre,next,time,index}}"></template>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='loading'>
+      <loading hidden="{{hiddenLoading}}">正在加载</loading>
+    </view>
+  </scroll-view>
+</view>

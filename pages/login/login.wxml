@@ -1,0 +1,6 @@
+<view class="page">
+  <view class='operation page__bd page__bd_spacing'>
+    <button class="weui-btn" type="primary" bindtap='to' data-id="登录">登录</button>
+    <button class="weui-btn" type="default" bindtap='to' data-id="注册">注册</button>
+  </view>
+</view>

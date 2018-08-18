@@ -1,0 +1,35 @@
+<template name="schedule">
+  <view class="stable" hidden='{{dataVisiable}}'>
+    <view class="str">
+      <view class='sth pre' bindtap="getSchedule" id="pre" >上一轮</view>
+      <view class='sth current'>
+        <picker bindchange="bindPickerChange" mode="selector" value="{{index}}" range="{{time}}">
+            <view class="picker">
+              {{time[index]}}
+            </view>
+        </picker>
+      </view>
+      <view class="sth next" bindtap="getSchedule" id='next' >下一轮</view>
+    </view>
+    <block wx:for="{{dataList}}" wx:for-item="item" wx:key="{{index}}">
+      <view class="str {{index%2==0?second:''}} content">
+        <view class='std time'>{{item.time}}</view>
+        <view class="std team">
+          <navigator url="/pages/detail/detail?type=team&id={{item.away.awayLink}}" class='away'>
+          <view class='Team'>
+            <image src='{{item.away.awayImg}}' class='teamImg'></image>
+            <view class='teamName'>{{item.away.awayName}}</view>
+          </view>
+          </navigator>
+          <view class='std sresult'>{{item.status}}</view>
+          <navigator url="/pages/detail/detail?type=team&id={{item.home.homeLink}}" class='home'>
+          <view class='Team'>
+            <image src='{{item.home.homeImg}}' class='teamImg'></image>
+            <view class='teamName'>{{item.home.homeName}}</view>
+          </view>
+          </navigator>
+        </view>
+      </view>
+    </block>
+  </view>
+</template>

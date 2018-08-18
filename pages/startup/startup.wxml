@@ -1,0 +1,4 @@
+<view class="bg">
+  <image src='../../img/startup_bg.jpg' class='bigPic'></image>
+</view>
+<view class='interval' bindtap='toIndex'>{{count}}s 跳过</view>

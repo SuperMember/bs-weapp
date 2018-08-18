@@ -1,0 +1,129 @@
+page, .page, .page__bd {
+  height: 100%;
+}
+
+.page__bd {
+  padding-bottom: 0;
+}
+
+.weui-tab__content {
+  /* padding-top: 60px; */
+  text-align: center;
+}
+
+.weui-navbar__item.weui-bar__item_on {
+  color: #1296db;
+}
+
+.weui-navbar__slider {
+  background-color: #1296db;
+}
+
+.line {
+  height: 10px;
+  background-color: #f5f5f5;
+}
+
+.rankList {
+  margin: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.ownerList {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border: 5px solid #f5f5f5;
+}
+
+.userImg {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  background-color: #bebebe;
+  -webkit-border-radius: 100px;
+}
+
+.rankImg {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+.username {
+  font-size: 15px;
+}
+
+.active, .time {
+  font-size: 12px;
+  color: #bebebe;
+}
+
+.rank {
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 10%;
+}
+
+.nodata {
+  padding-top: 50%;
+}
+
+.nodataImg {
+  width: 100px;
+  height: 100px;
+}
+
+.nodataMsg {
+  font-size: 13px;
+  color: #bebebe;
+}
+
+.info, .ownerinfo {
+  text-align: left;
+}
+
+.imgCon {
+  text-align: center;
+}
+
+.statement {
+  background-color: #f5f5f5;
+  font-size: 12px;
+}
+
+.state {
+  padding: 5px;
+  /* display: flex;
+  align-items: center;
+  justify-content: flex-start; */
+  text-align: left;
+}
+
+.listImg {
+  width: 40px;
+  height: 40px;
+  background-color: #efefef; /* Can be set to transparent */
+  -webkit-border-radius: 100px;
+}
+
+.operation {
+  position: fixed;
+  top: 80%;
+  left: 80%;
+  z-index: 9999;
+}
+
+.ownerImg {
+  width: 50px;
+  height: 50px;
+  background-color: #efefef; /* Can be set to transparent */
+  -webkit-border-radius: 100px;
+  border: 2px solid #1296db;
+  margin-right: 10px;
+}

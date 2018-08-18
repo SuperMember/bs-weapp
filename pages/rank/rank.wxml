@@ -1,0 +1,66 @@
+<view class="page">
+  <view class="page__bd">
+    <view class="weui-tab">
+      <view class="weui-navbar">
+        <block wx:for="{{tabs}}" wx:key="*this">
+          <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+            <view class="weui-navbar__title">{{item}}</view>
+          </view>
+        </block>
+        <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+      </view>
+      <view class="weui-tab__panel">
+        <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+          <view class='statement' wx:if="{{rankList!=null}}">
+            <view class='state'>活跃度说明：每发有效帖子积2分,参数帖子回复积1分,有效回复用户评论积1分</view>
+            <view class='state'>更新时间：每日0点开始统计，实时更新排行榜，次日清零重算;</view>
+          </view>
+          <block wx:for="{{rankList}}" wx:key="{{index}}" wx:if="{{rankList!=null}}">
+            <view class='line'></view>
+            <view class='rankList' bindtap='toUser' data-id='{{item.ID}}'>
+              <view class='rank'>
+                <view wx:if="{{index<=2}}" class="imgCon">
+                  <image src="{{index==0?'../../img/icon_first.png':(index==1?'../../img/icon_second.png':'../../img/icon_third.png')}}" class='rankImg'></image>
+                </view>
+                <view wx:else>{{index+1}}</view>
+              </view>
+              <image src="{{item.STATUE?'../../img/bg_close.jpg':item.IMG}}" class='userImg'></image>
+              <view class='info'>
+                <view class='username'>{{item.USERNAME}}</view>
+                <view class='active'>活跃度 {{item.ACTIVE}}</view>
+              </view>
+            </view>
+          </block>
+
+          <view wx:if="{{rankList==null || rankList.length==0}}" class='nodata'>
+            <image src='../../img/icon_no_data.jpeg' class='nodataImg'></image>
+            <view class='nodataMsg'>暂无数据</view>
+          </view>
+          <view class='operation'>
+            <image src='../../img/icon_up_top.png' class='listImg' bindtap='up'></image>
+          </view>
+        </view>
+        <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+          <view class='statement' wx:if="{{ownerList!=null}}">
+            <view class='state'>圈主说明：圈主一般是创建该圈的发起人,不排除圈主转让;</view>
+            <view class='state'>圈主权限：圈主拥有发表置顶帖的权限;</view>
+          </view>
+          <block wx:for="{{ownerList}}" wx:key="{{index}}" wx:if="{{ownerList!=null}}">
+            <view class='ownerList' bindtap='toUser' data-id='{{item.ID}}'>
+              <image src="{{item.STATUE?'../../img/bg_close.jpg':item.IMG}}" class='ownerImg'></image>
+              <view class='ownerinfo'>
+                <view class='username'>{{item.USERNAME}}</view>
+                <view class='time'>注册时长 {{item.CREATED}}天</view>
+              </view>
+            </view>
+          </block>
+
+          <view wx:if="{{ownerList==null || ownerList.length==0}}" class='nodata'>
+            <image src='../../img/icon_no_data.jpeg' class='nodataImg'></image>
+            <view class='nodataMsg'>暂无数据</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

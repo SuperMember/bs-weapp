@@ -1,0 +1,32 @@
+<view>
+  <scroll-view scroll-x="true" class="tab-h" scroll-left="{{scrollLeft}}">
+    <block wx:for="{{titleList}}" wx:key="{{index}}">
+      <view class="tab-item {{currentTab==index?'active':''}}" data-current="{{index}}" bindtap="swichNav">{{item.name}}</view>
+    </block>
+  </scroll-view>
+  <view class='content'>
+    <block wx:for="{{game}}" wx:key="{{index}}">
+      <view class='title'>{{item.time}}</view>
+
+      <block wx:for="{{item.game}}" wx:key="{{i}}" wx:for-item="gm">
+        <view class='contain'>
+          <view class='teamleft' bindtap='toDetail' data-url='/pages/detail/detail?type=team&id={{gm.away.awayLink}}'>
+            <image src='{{gm.away.awayImg}}' class='img'></image>
+            <view class='teamName'>{{gm.away.awayName}}</view>
+          </view>
+          <view class='show' bindtap='toDetail' data-url="/pages/gameDetail/gameDetail?id={{gm.link}}">
+            <view>{{gm.time}}  {{gm.round}}</view>
+            <view class="{{gm.stat!=null?'stat':''}}">{{gm.stat==null?'未开场':gm.stat}}</view>
+          </view>
+          <view class='teamright' bindtap='toDetail' data-url="/pages/detail/detail?type=team&id={{gm.home.homeLink}}">
+            <image src='{{gm.home.homeImg}}' class='img'></image>
+            <view class='teamName'>{{gm.home.homeName}}</view>
+          </view>
+        </view>
+        <view class='line'></view>
+      </block>
+    </block>
+  </view>
+
+
+</view>

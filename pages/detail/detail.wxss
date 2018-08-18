@@ -1,0 +1,266 @@
+.teamHeaderImg {
+  width: 100px;
+  height: 100px;
+}
+
+.weui-navbar__item.weui-bar__item_on{
+  color: #1296DB;
+}
+.weui-navbar__slider{
+  background-color: #1296DB;
+}
+.teamCInt {
+  margin-left: 5px;
+  width: 20px;
+  height: 20px;
+}
+
+.header {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+.header_left {
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.header_right {
+  margin-top: 20px;
+  margin-left: 5px;
+}
+
+.teamHeader {
+  display: flex;
+  align-items: center;
+}
+
+.info {
+  font-size: 13px;
+}
+
+.header {
+  background-color: #000;
+  color: white
+}
+
+.table {
+  border-right: 0;
+  border-bottom: 0;
+  width: 100%;
+}
+
+.tr, .str {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* padding-top: 10px; *//* padding-top: 5px;
+  margin-bottom: 10px; */
+}
+
+.str{
+  padding-top: 5px;
+  margin-bottom:5px; 
+}
+
+.content {
+  padding-top: 10px;
+}
+
+.th, .td,.std {
+  text-align: center;
+  width: 20%;
+  padding: 0px;
+  font-size: 13px;
+}
+.thheader{
+  display: flex;
+  justify-content: space-arounds;
+  align-items: center;
+}
+
+.td,.th{
+  border-bottom: 1px solid #dadada;
+}
+
+.th {
+  background-color: #dadada;
+}
+
+.intImg {
+  width: 20px;
+  height: 20px;
+}
+
+.teamImg{
+  width: 25px;
+  height: 25px;
+}
+
+.playerImg {
+  width: 25px;
+  height: 25px;
+}
+
+
+.resultName{
+  width: 30%;
+  padding-bottom: 5px;
+}
+
+.result {
+  width: 10%;
+  padding-bottom: 5px;
+  text-align: center;
+}
+
+.v{
+  background-color: #1296DB;
+  border-radius: 5px;
+}
+
+.l{
+  background-color: #CD0000;
+  border-radius: 5px;
+}
+
+.d{
+  background-color: #00EE00;
+  border-radius: 5px;
+}
+
+.resultInt {
+  width: 14%;
+}
+
+
+.player {
+  width: 30%;
+  display: flex;
+  align-items: center;
+}
+
+.honourName {
+  font-size: 13px;
+}
+
+.honourTime {
+  font-size: 13px;
+}
+
+.honourImg {
+  width: 20px;
+  height: 20px;
+}
+
+.img {
+  width: 10%;
+}
+
+.honourName {
+  width: 45%;
+}
+
+.honourTime {
+  width: 45%;
+}
+
+.honour {
+  border-bottom: none;
+}
+.odd{
+  background-color: #F5F5F5;
+}
+.team{
+  width: 35%;
+}
+.teamplayerHeader{
+  font-size: 15px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  text-align: center;
+  background-color: #f5f5f5;
+}
+.teamplayercon{
+   display: flex;
+  align-items: center;
+   /* justify-content: center;   */
+}
+.left,.right{
+  width: 50%;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.teamplayercon .info{
+  margin-left: 10px;
+   width: 70%; 
+}
+.leftline{
+  width: 5px;
+  height: 15px;
+  margin-right: 5px;
+  background-color: #1296DB;
+}
+
+.line{
+  width: 1px;
+  background-color: black;
+}
+.pImg{
+  width: 30px;
+  height: 30px;
+}
+.pname,.pnum{
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.pname{
+  
+  color: black;
+}
+.pnum{
+  color: #D9D9D9;
+}
+.goalImg{
+  width: 15px;
+  height: 15px;
+}
+.goalNum{
+  font-size: 10px;
+  color: black;
+}
+.data{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.gameweek{
+  font-size: 10px;
+  color: #BDBDBD;
+}
+.hiddenTime{
+  font-size: 12px;
+}
+.dataHeader{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 5px; 
+  background-color: #f5f5f5;
+  font-size: 12px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.teamDetailInfo{
+  padding-left: 5px;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}

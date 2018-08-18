@@ -1,0 +1,31 @@
+<template name="score">
+  <view class="table" hidden='{{dataVisiable}}'>
+    <view class="tr header">
+      <view class="th team">球队</view>
+      <!-- <view class="th result">胜</view>
+              <view class="th result">平</view>
+              <view class="th result">负</view> -->
+      <view class='th result'>胜/平/负</view>
+      <view class="th result">进/失</view>
+      <view class="th result">净胜球</view>
+      <view class="th result">积分</view>
+    </view>
+    <block wx:for="{{dataList}}" wx:for-item="item" wx:key="{{index}}">
+      <view class="tr content {{toprank >= item.rank ? 'toprank' : ''}} {{dataList.length-item.rank < bottomrank ? 'bottomrank' : ''}}">
+        <view class="td team">
+          <view class="rank {{index==0?'first':(index==1?'second':(index==2?'third':''))}}">{{item.rank}}</view>
+          <navigator url="/pages/detail/detail?type=team&id={{item.team.teamLink}}">
+            <view class='teamInfo'>
+              <image src='{{item.team.teamImg}}' class='teamImg'></image>
+              <view class='teamName'>{{item.team.teamName}}</view>
+            </view>
+          </navigator>
+        </view>
+        <view class="td result">{{item.v}}/{{item.h}}/{{item.d}}</view>
+        <view class="td result">{{item.goal}}/{{item.lost}}</view>
+        <view class="td result">{{item.gl}}</view>
+        <view class="td result">{{item.score}}</view>
+      </view>
+    </block>
+  </view>
+</template>

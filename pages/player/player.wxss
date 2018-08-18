@@ -1,0 +1,224 @@
+page, .page, .page__bd {
+  height: 100%;
+}
+
+.page__bd {
+  padding-bottom: 0;
+}
+
+.weui-tab__content {
+  padding-top: 0px;
+  text-align: center;
+}
+
+.weui-navbar__item.weui-bar__item_on{
+  color: #1296DB;
+}
+.weui-navbar__slider{
+  background-color: #1296DB;
+}
+
+.playerImg {
+  width: 100px;
+  height: 100px;
+}
+
+.playerIntImg {
+  width: 30px;
+  height: 30px;
+  padding-left: 3px;
+}
+
+.header_left_header {
+  display: flex;
+  align-items: center;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #000;
+  color: white;
+}
+
+.playerHeader {
+  /* display: flex;
+  justify-content: space-between; */
+  font-size: 10px;
+}
+
+.table {
+  border-right: 0;
+  border-bottom: 0;
+  width: 100%;
+}
+
+.tr {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+}
+
+.th, .td {
+  padding: 0px;
+  font-size: 11px;
+  width: 100px;
+}
+
+.left, .right {
+  padding-right: 10px;
+}
+
+.canvasView {
+  display: flex;
+  align-items: center;
+}
+
+.detail_header, .detail_bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.detail_left, .detail_right {
+  width: 40%;
+}
+
+.img {
+  width: 25px;
+  height: 25px;
+}
+
+.canvas {
+  height: 350px;
+  width: 350px;
+}
+
+.star-image {
+  width: 25px;
+  height: 25px;
+}
+
+.odd {
+  background-color: #bebebe;
+}
+
+.str {
+  padding-top: 5px;
+  margin-bottom: 5px;
+}
+
+.honourName {
+  font-size: 13px;
+}
+
+.honourTime {
+  font-size: 13px;
+}
+
+.honourImg {
+  width: 20px;
+  height: 20px;
+}
+
+.std {
+  text-align: center;
+  width: 20%;
+  padding: 0px;
+  font-size: 13px;
+}
+
+.honourName, .invalidDetail, .invalidTeam {
+  width: 45%;
+}
+
+.honourTime, .invalidTime {
+  width: 45%;
+}
+
+.honour, .invalid, .transfer {
+  border-bottom: none;
+  display: flex;
+}
+
+.transfer {
+  align-items: center;
+}
+
+.transferDetail, .transferTime {
+  width: 20%;
+}
+
+.transferTeam {
+  width: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.teamImg {
+  width: 25px;
+  height: 25px;
+}
+
+.from, .to {
+  width: 45%;
+}
+
+.imgFromTo {
+  width: 25px;
+  height: 25px;
+}
+
+.data_title {
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 0px;
+  align-items: center;
+  justify-content: space-between;
+  display: flex;
+}
+
+.data_title_right {
+  width: 100%;
+  padding-right: 0px;
+  float: right;
+}
+
+.data_title_btn {
+  margin-top: 10px;
+  float: left;
+}
+
+.data_title_btn_click {
+  background-color: #bebebe;
+}
+
+.title {
+  background-color: #bebebe;
+}
+
+.result {
+  font-size: 12px;
+  width: 12%;
+}
+
+.team {
+  font-size: 12px;
+  width: 28%;
+}
+
+.content {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.odd {
+  background-color: #bebebe;
+}

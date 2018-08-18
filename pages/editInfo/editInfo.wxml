@@ -1,0 +1,104 @@
+<view class="page">
+  <view class="weui-cells__title">基本资料</view>
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">用户名</view>
+      </view>
+      <view class="weui-cell__bd">
+        <!-- <modal hidden="{{hiddenmodalput}}" title="修改用户名" confirm-text="提交" cancel-text="取消" bindcancel="cancelName" bindconfirm="confirmName">
+          <input type='text' placeholder="请输入用户名" auto-focus bindinput='bindName'/>
+        </modal> -->
+        <view>{{userInfo.USERNAME}}</view>
+        <!-- <image src='../../img/icon_arrow_right.png' class='miniImg' bindtap='editName'></image> -->
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">头像</view>
+      </view>
+      <view class="weui-cell__bd">
+        <image class='img' src='{{userInfo.IMG}}' bindtap='editImg'></image>
+        <image src='../../img/icon_arrow_right.png' class='miniImg'></image>
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">性别</view>
+      </view>
+      <view class="weui-cell__bd" bindtap='editSex'>
+        <image src="{{userInfo.SEX==0?'../../img/icon_man.png':'../../img/icon_woman.png'}}" class='sexImg'></image>
+        <image src='../../img/icon_arrow_right.png' class='miniImg'></image>
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_input">
+      <!--弹窗-->
+      <view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+      <view class="modal-dialog" wx:if="{{showModal}}">
+        <view class="modal-title">手机号验证</view>
+        <view class="modal-content">
+          <view class="modal-input">
+            <input placeholder-class="input-holder" type="number" maxlength="11" bindinput="inputChange" class="input" placeholder="请输入手机号"></input>
+            <view class='line'></view>
+            <view class='codeInput'>
+              <input placeholder-class="input-holder" type="number" maxlength="6" bindinput="codeChange" class="input" placeholder="请输入验证码"></input>
+              <button type='primary' size='mini' class='btnsend' disabled='{{disable}}' bindblur="bindblur" bindtap='submitPhone'>{{codeMsg}}</button>
+            </view>
+          </view>
+        </view>
+        <view class="modal-footer">
+          <view class="btn-cancel" bindtap="onCancel" data-status="cancel">取消</view>
+          <view class="btn-confirm" bindtap="onConfirm" data-status="confirm">确定</view>
+        </view>
+      </view>
+      <!--弹窗end  -->
+      <view class="weui-cell__hd">
+        <view class="weui-label">手机号</view>
+      </view>
+      <view class="weui-cell__bd">
+        <view>{{userInfo.PHONE}}</view>
+        <image src='../../img/icon_arrow_right.png' class='miniImg' bindtap="showDialogBtn"></image>
+      </view>
+    </view>
+
+  </view>
+  <view class="weui-cells__title">帐号信息</view>
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">注册时长</view>
+      </view>
+      <view class="weui-cell__bd">
+        {{userInfo.CREATED}}天
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">状态</view>
+      </view>
+      <view class="weui-cell__bd">
+        {{userInfo.STATUE==0?'正常':'小黑屋'}}
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">等级</view>
+      </view>
+      <view class="weui-cell__bd">
+        {{userInfo.DEGREE}}
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">信誉积分</view>
+      </view>
+      <view class="weui-cell__bd">
+        {{userInfo.POINTS}}
+      </view>
+    </view>
+  </view>
+  <view class="weui-btn-area">
+    <button class="weui-btn" type="primary" bindtap="submit" disabled='{{userInfo.STATUE==1}}'>保存</button>
+    <button class="weui-btn" type="primary" bindtap="logout">退出登录</button>
+  </view>
+</view>

@@ -1,0 +1,19 @@
+.uploadIcon{
+  width: 100px;
+  height: 30px;
+}
+
+.upload{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.uploadImg{
+  width: 100px;
+  height: 100px;
+}
+
+.uploadBack{
+  height: 200px;
+}

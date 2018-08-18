@@ -1,0 +1,467 @@
+@import "../../wxParse/wxParse.wxss";
+
+view {
+  overflow: visible;
+}
+
+.headImg {
+  width: 60px;
+  height: 60px;
+  margin: 10px;
+  background-color: #efefef; /* Can be set to transparent */
+  border: 2px #1296db solid;
+  -webkit-border-radius: 100px;
+}
+
+.headInfo {
+  font-size: 15px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+}
+
+.content, .hidden {
+  font-size: 15px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.stitle{
+  font-size: 13px;
+}
+
+.hidden{
+  margin-top: 10px;
+}
+.contents {
+  font-size: 13px;
+  color: #bebebe;
+}
+
+.imgs {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.commentContent {
+  margin-left: 55px;
+  margin-right: 10px;
+}
+
+.table {
+  border-right: 0;
+  border-bottom: 0;
+  width: 100%;
+}
+
+.tr {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding-top: 5px;
+  /*margin-bottom: 10px; */
+}
+
+.td {
+  text-align: center;
+  padding: 0px;
+}
+
+.comment {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.CommentArticle {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.commentImg {
+  width: 40px;
+  height: 40px;
+  background-color: #efefef; /* Can be set to transparent */
+  border: 2px #1296db solid;
+  -webkit-border-radius: 100px;
+}
+
+.commentPic {
+  width: 100%;
+}
+
+.userImg {
+  width: 15%;
+}
+
+.zan {
+  width: 15%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 10px;
+}
+
+.count {
+  font-size: 12px;
+  padding-right: 3px;
+}
+
+.info {
+  width: 70%;
+  display: flex;
+}
+
+.zanImg {
+  width: 20px;
+  height: 20px;
+}
+
+.commentName, .commentTime {
+  font-size: 13px;
+}
+
+.commentName {
+  color: #1296db;
+  display: flex;
+}
+
+.line {
+  height: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-top: 10px;
+  font-size: 15px;
+  color: black;
+  background-color: #f5f5f5;
+}
+
+.reply {
+  font-size: 13px;
+}
+
+.replyCt {
+  margin-bottom: 5px;
+  margin-left: 55px;
+  margin-right: 20px;
+  background: #f5f5f5;
+  padding: 8px;
+}
+
+.replyInfo {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.comments {
+  font-size: 15px;
+}
+
+.hd {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-top: 10px;
+  padding-right: 10px;
+  background-color: #f5f5f5;
+  font-size: 13px;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  z-index: 9000;
+  opacity: 0.7;
+}
+
+.cImg {
+  width: 100%;
+  height: 100%;
+}
+
+.modalDlg {
+  width: 580rpx;
+  height: 620rpx;
+  position: fixed;
+  top: 50%;
+  left: 0;
+  z-index: 9999;
+  margin: -370rpx 85rpx;
+  background-color: #fff;
+  border-radius: 36rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.closeImg {
+  width: 20px;
+  height: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.input_null {
+  color: #c9c9c9;
+}
+
+.container {
+  width: 100%;
+  z-index: 999;
+}
+
+.release {
+  width: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 999;
+  font-size: 28rpx;
+  background-color: #f7f8f7;
+  box-sizing: border-box;
+}
+
+.ct {
+  padding: 18rpx 0 18rpx 30rpx;
+  display: flex;
+  align-items: center; /*底部对齐*/
+  justify-content: space-between; /*两端对齐*/
+}
+
+.ct .text {
+  width: 604rpx;
+  min-height: 34rpx;
+  max-height: 102rpx; /*最多显示三行*/
+  border-width: 15rpx 20rpx; /*使用padding与预期留白不一致，故使用border*/
+  border-style: solid;
+  border-color: #fff;
+  line-height: 34rpx;
+  font-size: 28rpx;
+  background-color: #fff;
+  border-radius: 4rpx;
+}
+
+.ct .submit {
+  width: 116rpx;
+  height: 64rpx;
+  line-height: 64rpx;
+  text-align: center;
+  color: #6c0;
+}
+
+.addImg {
+  width: 25px;
+  height: 25px;
+  margin-left: 5px;
+}
+
+.hiddenContent {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 250px;
+}
+
+.picImg {
+  height: 240px;
+}
+
+.commmentInfo {
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.replys, .imgLink {
+  color: #1296db;
+}
+
+video {
+  width: 100%;
+}
+
+.detail,.detailleft {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: 15px;
+}
+.detail{
+  padding-right: 10px;
+}
+.detailleft{
+  padding-left: 10px;
+}
+.detailcon {
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.arrowImg {
+  padding-left: 5px;
+  width: 20px;
+  height: 20px;
+}
+.videoImg{
+   width: 20px;
+  height: 20px;
+  padding-right: 5px;
+}
+
+.articleInfo {
+  margin-bottom: 5px;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.username {
+  margin-right: 10px;
+  color: #1296db;
+}
+
+.articleContainer {
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.wxParse-img {
+  width: 100%;
+}
+
+.name {
+  color: #1296db;
+}
+
+.replyUserName {
+  color: #1296db;
+}
+
+.show-btn {
+  margin-top: 100rpx;
+  color: #2c2;
+}
+
+.modal-mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.5;
+  overflow: hidden;
+  z-index: 9000;
+  color: #fff;
+}
+
+.radio {
+  font-size: 12px;
+}
+
+.modal-dialog {
+  width: 100%;
+  overflow: hidden;
+  position: fixed;
+  top: 50%;
+  left: 0;
+  z-index: 9999;
+  background: #f9f9f9;
+  /* margin: -180rpx 105rpx; */
+  border-radius: 36rpx;
+}
+
+.articleHeader {
+  font-size: 25px;
+}
+
+.modal-title {
+  padding-top: 50rpx;
+  font-size: 36rpx;
+  color: #030303;
+  text-align: center;
+}
+
+.modal-content {
+  padding: 50rpx 32rpx;
+}
+
+.modal-input {
+  display: flex;
+  background: #fff;
+  border: 2rpx solid #ddd;
+  border-radius: 4rpx;
+  font-size: 28rpx;
+}
+
+.input {
+  width: 100%;
+  height: 82rpx;
+  font-size: 28rpx;
+  line-height: 28rpx;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  color: #333;
+}
+
+input-holder {
+  color: #666;
+  font-size: 28rpx;
+}
+
+.modal-footer {
+  display: flex;
+  flex-direction: row;
+  height: 86rpx;
+  border-top: 1px solid #dedede;
+  font-size: 34rpx;
+  line-height: 86rpx;
+}
+
+.btn-cancel {
+  width: 50%;
+  color: #666;
+  text-align: center;
+  border-right: 1px solid #dedede;
+}
+
+.btn-confirm {
+  width: 50%;
+  color: #ec5300;
+  text-align: center;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  margin-right: 5px;
+  height: 15px;
+  width: 5px;
+  background-color: #1296db;
+}
+
+.hd_left {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}

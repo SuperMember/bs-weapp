@@ -1,0 +1,71 @@
+{
+  "pages":[
+    "pages/startup/startup",
+    "pages/index/index",
+    "pages/circleCreate/circleCreate",
+    "pages/login/login",
+    "pages/doLoginReg/doLoginReg",
+    "pages/my/my",
+    "pages/circleDetail/circleDetail",
+    "pages/article/article",
+    "pages/circle/circle",
+    "pages/data/data",
+    "pages/game/game",
+    "pages/detail/detail",
+    "pages/player/player",
+    "pages/gameDetail/gameDetail",
+    "pages/articleDetail/articleDetail",
+    "pages/reply/reply",
+    "pages/editInfo/editInfo",
+    "pages/userInfo/userInfo",
+    "pages/rank/rank"    
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#1296DB",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "color": "#6e6d6b",
+    "selectedColor": "#1296DB",
+    "borderStyle": "white",
+    "backgroundColor": "#F5F5F5",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "img/icon_index_unselected.png",
+        "selectedIconPath": "img/icon_index_selected.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/game/game",
+        "iconPath": "img/icon_game_unselected.png",
+        "selectedIconPath": "img/icon_game_selected.png",
+        "text": "比赛"
+      },
+      {
+        "pagePath": "pages/circle/circle",
+        "iconPath": "img/icon_circle_unselected.png",
+        "selectedIconPath": "img/icon_circle_selected.png",
+        "text": "圈子"
+      },
+      {
+        "pagePath": "pages/data/data",
+        "iconPath": "img/icon_data_unselected.png",
+        "selectedIconPath": "img/icon_data_selected.png",
+        "text": "数据"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "iconPath": "img/icon_my_unselected.png",
+        "selectedIconPath": "img/icon_my_selected.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  }
+}

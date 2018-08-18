@@ -1,0 +1,54 @@
+<view class="page">
+  <!-- <view class="weui-cells__title">标题</view>
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__bd">
+        <input class="weui-input" placeholder="请输入标题" value='{{title}}'/>
+      </view>
+    </view>
+  </view> -->
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell weui-cell_input {{!hidden?'weui-cell_warn':''}}">
+      <view class="weui-cell__hd">
+        <view class="weui-label">标题</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" placeholder="请输入标题" bindinput='bindTitle' bindchange="bindChange" />
+      </view>
+      <view class="weui-cell__ft" hidden='{{hidden}}'>
+        <icon type="warn" size="23" color="#E64340"></icon>
+      </view>
+    </view>
+  </view>
+  <view class="weui-cells__title">内容</view>
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell">
+      <view class="weui-cell__bd">
+        <textarea class="weui-textarea" placeholder="请输入文本" style="height: 3.3em" bindinput='bindContent' />
+      </view>
+    </view>
+  </view>
+  <view class="weui-cells__title">图片</view>
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell">
+      <view class="weui-cell__bd">
+        <block wx:for="{{imgs}}" wx:key="{{index}}">
+          <image src='{{item}}' class='img'></image>
+        </block>
+        <image src='../../img/icon_upload.png' class='img' bindtap='selectImg'></image>
+      </view>
+    </view>
+  </view>
+  <view class="weui-cells__title" wx:if="{{isOwner}}">是否置顶</view>
+  <view class="weui-cells weui-cells_after-title" wx:if="{{isOwner}}">
+    <view class="weui-cell weui-cell_switch">
+      <view class="weui-cell__bd">置顶</view>
+      <view class="weui-cell__ft">
+        <switch  bindchange="bindchange"/>
+      </view>
+    </view>
+  </view>
+  <view class="weui-btn-area">
+    <button class="weui-btn" type="primary" bindtap="submit">确定</button>
+  </view>
+</view>

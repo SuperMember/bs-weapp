@@ -1,0 +1,166 @@
+<view>
+  <view class='header'>
+    <view class='header_left'>
+      <view class='header_left_header'>
+        <view>{{player.playerName}}</view>
+        <block wx:for="{{player.playerIntImg}}" wx:key="{{index}}">
+          <image src='{{item}}' class='playerIntImg'></image>
+        </block>
+      </view>
+      <view>{{player.playerEnName}}</view>
+      <view class='playerHeader'>
+        <view class='table'>
+          <block wx:for="{{leftInfo}}" wx:key="{{index}}">
+            <view class='tr'>
+              <view class='td left'>{{leftInfo[index]}}</view>
+              <view class='td right'>{{rightInfo[index]}}</view>
+            </view>
+          </block>
+        </view>
+      </view>
+    </view>
+    <view class='header_right'>
+      <image src='{{player.playerImg}}' class='playerImg'></image>
+    </view>
+  </view>
+  <view class="page__bd">
+    <view class="weui-tab">
+      <view class="weui-navbar">
+        <block wx:for="{{tabs}}" wx:key="*this">
+          <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+            <view class="weui-navbar__title">{{item}}</view>
+          </view>
+        </block>
+        <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+      </view>
+      <view class="weui-tab__panel">
+        <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+          <!--比赛数据  -->
+           <view class='data_title'>
+              <block wx:for-items="{{titleList}}" wx:for-item="item" wx:key="{{index}}">
+                <view id="{{index}}" class="data_title_btn " bindtap="tabTitleClick">
+                  <button class=" {{currentIndex == index ? 'data_title_btn_click' : ''}}" size="mini">{{item.name}}</button>
+                </view>
+              </block>
+          </view>
+          <view class='table'>
+            <view class='tr title'>
+              <view class='th result'>赛季</view>
+              <view class='th team'>球队</view>
+              <view class='th result'>赛事</view>
+              <view class='th result'>上/首</view>
+              <view class='th result'>进/助</view>
+              <view class='th result'>黄/红</view>
+              <view class='th result'>替补</view>
+            </view>
+            <block wx:for="{{match_stat[currentIndex]}}" wx:key="{{index}}">
+              <view class="tr content {{index%2==1? 'odd':''}}">
+                 <view class='td result'>{{item[0]}}</view>
+                 <view class='td team'>
+                  <navigator url='/pages/detail/detail?type=team&id={{item[1]}}'>
+                    {{item[2]}}
+                  </navigator>  
+                </view>
+                <view class='td result'>{{item[3]}}</view>
+                <view class='td result'>{{item[4]}}/{{item[5]}}</view>
+                <view class='td result'>{{item[6]}}/{{item[7]}}</view>
+                <view class='td result'>{{item[8]}}/{{item[9]}}</view>
+                <view class='td result'>{{item[10]}}</view>  
+              </view>
+            </block>
+          </view>
+        </view>
+        <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+          <view class="table" wx:if="{{honour!=null && honour.length!=0}}">
+            <block wx:for="{{honour}}" wx:for-item="item" wx:key="{{index}}">
+              <view class="str honour {{index%2==1?'odd':''}} ">
+                <view class='std img'>
+                  <image class='honourImg' src='{{item.honourImg}}'></image>
+                </view>
+                <view class='std honourName'>{{item.honourName}}</view>
+                <view class='std honourTime'>{{item.honourTime}}</view>
+              </view>
+            </block>
+          </view>
+          <view wx:else>暂无荣誉情况</view>
+        </view>
+        <view class="weui-tab__content" hidden="{{activeIndex != 2}}">
+          <view class="table" wx:if="{{transfer!=null && transfer.length!=0}}">
+            <block wx:for="{{transfer}}" wx:for-item="item" wx:key="{{index}}">
+              <view class="str transfer {{index%2==1?'odd':''}} ">
+                <view class='std transferTime'>{{item.time}}</view>
+                <view class='std transferTeam'>
+                  <view class='from'>
+                    <navigator url='/pages/detail/detail?type=team&id={{item.transferItems[0].transferLink}}'>
+                      <image src='{{item.transferItems[0].transferImg}}' class='teamImg'></image>
+                      <view>{{item.transferItems[0].transferName}}</view>
+                    </navigator>
+                  </view>
+                  <image src='../../img/icon_FromTo.png' class='imgFromTo'></image>
+                  <view class='to'>
+                    <navigator url='/pages/detail/detail?type=team&id={{item.transferItems[1].transferLink}}'>
+                      <image src='{{item.transferItems[1].transferImg}}' class='teamImg'></image>
+                      <view>{{item.transferItems[1].transferName}}</view>
+                    </navigator>
+                  </view>
+                </view>
+                <view class='std transferDetail'>{{item.transferDetail}}</view>
+              </view>
+            </block>
+          </view>
+           <view wx:else>暂无转会情况</view> 
+        </view>
+        <view class="weui-tab__content" hidden="{{activeIndex != 3}}">
+          <view class="table" wx:if="{{invalid!=null && invalid.length!=0}}">
+            <block wx:for="{{invalid}}" wx:for-item="item" wx:key="{{index}}">
+              <view class="str invalid {{index%2==1?'odd':''}} ">
+                <view class='std invalidTeam'>{{item.team}}</view>
+                <view class='std invalidDetail'>{{item.detail}}</view>
+                <view class='std invalidTime'>{{item.time}}</view>
+              </view>
+            </block>
+          </view>
+          <view wx:else>暂无伤病情况</view>
+        </view>
+        <view class="weui-tab__content" hidden="{{activeIndex != 4}}">
+          <view>{{ability.title}}</view>
+          <canvas canvas-id="radarCanvas" disable-scroll="true" class="canvas"></canvas>
+          <view class='detail'>
+            <view class='detail_header'>
+              <view class='detail_left'>
+                <view class='name'>{{ability.des[0].name}}</view>
+                <image src='{{ability.des[0].des}}' class='img'></image>
+              </view>
+              <view class='detail_right'>
+                <view class='name'>{{ability.des[1].name}}</view>
+                <block wx:for="{{[1,2,3,4,5]}}" wx:key="{{index}}">
+                  <image class="star-image" wx:if="{{index<=ability.des[1].des}}" src="{{selectedSrc}}">
+                  </image>
+                  <image class='star-image' wx:else src='{{normalSrc}}'></image>
+                </block>
+              </view>
+            </view>
+            <view class='detail_bottom'>
+              <view class='detail_left'>
+                <view class='name'>{{ability.des[2].name}}</view>
+                <block wx:for="{{[1,2,3,4,5]}}" wx:key="{{index}}">
+                  <image class="star-image" wx:if="{{index<=ability.des[2].des}}" src="{{selectedSrc}}">
+                  </image>
+                  <image class='star-image' wx:else src='{{normalSrc}}'></image>
+                </block>
+              </view>
+              <view class='detail_right'>
+                <view class='name'>{{ability.des[3].name}}</view>
+                <block wx:for="{{[1,2,3,4,5]}}" wx:key="{{index}}">
+                  <image class="star-image" wx:if="{{index<=ability.des[3].des}}" src="{{selectedSrc}}">
+                  </image>
+                  <image class='star-image' wx:else src='{{normalSrc}}'></image>
+                </block>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
